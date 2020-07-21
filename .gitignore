@@ -160,3 +160,14 @@ AdamDemo.Web.Studio/Uploads
 
 *.orig
 GameLive.Web/.vs/GameLive.Web/v15/Server/sqlite3/db.lock
+
+ShaderCache/
+StateCache/
+ScriptAssemblies/
+PackageCache/
+Artifacts/
+Temp/
+
+
+Tritium/Library/ArtifactDB-lock
+Tritium/Library/SourceAssetDB-lock
