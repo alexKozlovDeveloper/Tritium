@@ -171,3 +171,7 @@ Temp/
 
 Tritium/Library/ArtifactDB-lock
 Tritium/Library/SourceAssetDB-lock
+Tritium/Library/SourceAssetDB
+Tritium/Library/CurrentLayout-default.dwlt
+Tritium/Library/ArtifactDB
+Tritium/Library/APIUpdater/project-dependencies.graph
