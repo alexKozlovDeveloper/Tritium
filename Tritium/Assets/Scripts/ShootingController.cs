@@ -1,26 +1,35 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
+    [SerializeField] private float reloadTime = 0.1f;
+
+    private Timer _timer;
 
     void Start()
     {
-        
+        _timer = new Timer(0);        
     }
 
     public void Shoot()
     {
-        var newBullet = Instantiate(bullet);
+        if (_timer.IsTimeEnd)
+        {
+            var newBullet = Instantiate(bullet);
 
-        newBullet.transform.position = transform.position;
-        newBullet.transform.rotation = transform.rotation;
+            newBullet.transform.position = transform.position;
+            newBullet.transform.rotation = transform.rotation;
+
+            _timer.ResetTime(reloadTime);
+        }
     }
 
     void Update()
     {
-        
+        _timer.AddPassedTime(Time.deltaTime);
     }
 }
