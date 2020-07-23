@@ -121,6 +121,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &161451682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 161451684}
+  - component: {fileID: 161451683}
+  m_Layer: 0
+  m_Name: RayCastTester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &161451683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161451682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab1a1c44541ea349bae4d6a12c2a65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 20
+--- !u!4 &161451684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161451682}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 10, z: -49.03393}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -50.33333}
+  m_LocalPosition: {x: 0, y: 0, z: -80}
   m_LocalScale: {x: 3.3333325, y: 3.3333325, z: 3.3333325}
   m_Children: []
   m_Father: {fileID: 1654072663}
@@ -269,6 +313,7 @@ GameObject:
   - component: {fileID: 1295170749}
   - component: {fileID: 1295170752}
   - component: {fileID: 1295170751}
+  - component: {fileID: 1295170753}
   m_Layer: 8
   m_Name: EnemyStarship
   m_TagString: Untagged
@@ -364,9 +409,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1e7d043c024944ab83455034751e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 10
-  rotationSpeed: 100
+  movingSpeed: 12
+  rotationSpeed: 160
   decelerationSpeed: 0.35
+--- !u!114 &1295170753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295170748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81342ff95b6eff4419a234eed2a90e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3191330801253380943, guid: cdd08a1cb29e48c4db2eb093f222b6b5, type: 3}
 --- !u!1 &1567435330
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +496,7 @@ GameObject:
   - component: {fileID: 1654072667}
   - component: {fileID: 1654072666}
   - component: {fileID: 1654072664}
+  - component: {fileID: 1654072668}
   m_Layer: 8
   m_Name: HeroStarship
   m_TagString: Untagged
@@ -563,6 +622,22 @@ MonoBehaviour:
   movingSpeed: 20
   rotationSpeed: 140
   decelerationSpeed: 0.35
+--- !u!58 &1654072668
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654072661}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.8799999
 --- !u!1 &2083398921
 GameObject:
   m_ObjectHideFlags: 0

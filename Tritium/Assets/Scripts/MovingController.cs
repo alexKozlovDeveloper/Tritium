@@ -9,34 +9,36 @@ public class MovingController : MonoBehaviour
 
     [SerializeField] private float decelerationSpeed = 0.35f;
 
-    private float angle = 0f;
-    private float currentSpeed = 0f;
+    public float Angle { get; private set; }
+    public float CurrentSpeed { get; private set; }
 
     public void RotateRight()
     {
-        angle -= rotationSpeed * Time.deltaTime;
+        Angle -= rotationSpeed * Time.deltaTime;
     }
 
     public void RotateLeft()
     {
-        angle += rotationSpeed * Time.deltaTime;
+        Angle += rotationSpeed * Time.deltaTime;
     }
 
     public void MoveForward()
     {
-        currentSpeed += movingSpeed * Time.deltaTime;        
+        CurrentSpeed += movingSpeed * Time.deltaTime;
     }
 
     void Update()
     {
-        transform.eulerAngles = new Vector3(0, 0, angle);
+        transform.eulerAngles = new Vector3(0, 0, Angle);
 
-        currentSpeed = Mathf.Clamp(currentSpeed, 0, movingSpeed);        
+        CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, movingSpeed);
 
-        var velocity = transform.rotation * Vector3.up * currentSpeed * Time.deltaTime;
+        var velocity = transform.rotation * Vector3.up * CurrentSpeed * Time.deltaTime;
 
         transform.position += velocity;
 
-        currentSpeed -= movingSpeed * Time.deltaTime * decelerationSpeed;
+        CurrentSpeed -= movingSpeed * Time.deltaTime * decelerationSpeed;
+
+        //Debug.Log($"Moving angle {Angle}");
     }
 }

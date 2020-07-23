@@ -10,32 +10,32 @@ using UnityEngine;
 
 namespace Assets.Scripts.StateMachine.States
 {
-    class ChangeDirectionState : IState
+    class ChangeDirectionState : BaseState
     {
         public static string Name = "ChangeDirection";
-        public string StateName { get { return Name; } }
+        public override string StateName { get { return Name; } }
 
-        private readonly MovingController _movingController;        
+        //private readonly MovingController _movingController;        
 
         private Timer _timer;
         private bool _direction;
 
-        public ChangeDirectionState(MovingController movingController)
+        public ChangeDirectionState(MonoBehaviour target) : base(target)
         {
-            _movingController = movingController;
+            //_movingController = movingController;
 
             Reset();
         }
 
-        public void Reset()
+        public override void Reset()
         {
             _timer = new Timer(UnityEngine.Random.Range(0.1f, 0.8f));
             _direction = UnityEngine.Random.Range(0f, 1f) > 0.5f;
 
-            Debug.Log($"Reset {Name}, Timer: {_timer.Time}, direction: {_direction}");
+            //Debug.Log($"Reset {Name}, Timer: {_timer.Time}, direction: {_direction}");
         }
 
-        public void Update(MachineContext context)
+        public override void Update(MachineContext context)
         {
             _timer.AddPassedTime(Time.deltaTime);
 
@@ -48,14 +48,15 @@ namespace Assets.Scripts.StateMachine.States
                 _movingController.RotateLeft();
             }
 
-            Debug.Log($"State {Name}, Timer: {_timer.Time}, direction: {_direction}");
+            //Debug.Log($"State {Name}, Timer: {_timer.Time}, direction: {_direction}");
         }
 
-        public void CheckTransition(MachineContext context)
+        public override void CheckTransition(MachineContext context)
         {
             if (_timer.IsTimeEnd)
             {
                 context.SetState(MovingState.Name);
+                //context.SetState(HuntingState.Name);
             }
         }
     }

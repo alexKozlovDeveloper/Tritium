@@ -68,12 +68,15 @@
     <Compile Include="Assets\Scripts\BackgroundLayerController.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
     <Compile Include="Assets\Scripts\Core\Timer.cs" />
+    <Compile Include="Assets\Scripts\Core\VectorHelper.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\MovingController.cs" />
+    <Compile Include="Assets\Scripts\RayCastTest.cs" />
     <Compile Include="Assets\Scripts\ShootingController.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Factory\StateMachineFactory.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Interfaces\IState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\MachineContext.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\BaseState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\ChangeDirectionState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\HuntingState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\MovingState.cs" />

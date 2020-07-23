@@ -9,40 +9,45 @@ using UnityEngine;
 
 namespace Assets.Scripts.StateMachine.States
 {
-    class MovingState : IState
+    class MovingState : BaseState
     {
         public static string Name = "Moving";
-        public string StateName { get { return Name; } }
+        public override string StateName { get { return Name; } }
 
         private Timer _timer;
 
-        private MovingController _movingController;
-
-        public MovingState(MovingController movingController)
+        public MovingState(MonoBehaviour target) : base(target)
         {
-            _movingController = movingController;
-
             Reset();
         }
 
-        public void Reset()
-        {         
+        public override void Reset()
+        {
             _timer = new Timer(UnityEngine.Random.Range(0.7f, 1.8f));
-
-            Debug.Log($"Reset {Name}, Timer: {_timer.Time}");
         }
 
-        public void Update(MachineContext context)
+        public override void Update(MachineContext context)
         {
             _timer.AddPassedTime(Time.deltaTime);
 
             _movingController.MoveForward();
-
-            Debug.Log($"State {Name}, Timer: {_timer.Time}");
         }
 
-        public void CheckTransition(MachineContext context)
+        public override void CheckTransition(MachineContext context)
         {
+            var results = Physics2D.CircleCastAll(_movingController.transform.position.ToVector2(), 20, Vector2.up);
+
+            foreach (var item in results)
+            {
+                if (item.collider != null)
+                {
+                    if (item.collider.gameObject.layer == 8)
+                    {
+                        context.SetState(HuntingState.Name);
+                    }
+                }
+            }
+
             if (_timer.IsTimeEnd)
             {
                 context.SetState(ChangeDirectionState.Name);

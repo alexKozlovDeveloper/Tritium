@@ -11,14 +11,16 @@ public class ShootingController : MonoBehaviour
         
     }
 
+    public void Shoot()
+    {
+        var newBullet = Instantiate(bullet);
+
+        newBullet.transform.position = transform.position;
+        newBullet.transform.rotation = transform.rotation;
+    }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-        {
-            var newBullet = Instantiate(bullet);
-
-            newBullet.transform.position = transform.position;
-            newBullet.transform.rotation = transform.rotation;
-        }
+        
     }
 }

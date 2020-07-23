@@ -35,7 +35,7 @@ namespace Assets.Scripts.StateMachine
 
         public void SetState(string newState)
         {
-            Debug.Log($"MachineContext: change state to '{newState}'");
+            //Debug.Log($"MachineContext: change state to '{newState}'");
 
             if (_states.Keys.Contains(newState))
             {
