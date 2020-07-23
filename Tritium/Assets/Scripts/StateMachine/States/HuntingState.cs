@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Core;
+using Assets.Scripts.Core.Constants;
 using Assets.Scripts.StateMachine.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,16 @@ namespace Assets.Scripts.StateMachine.States
 
         private GameObject victim = null;
 
-        public HuntingState(MonoBehaviour target) : base(target)
+        private readonly Vector2 _shootingBoxCastSize;
+        private readonly float _shootingDistance;
+        private readonly float _huntingDistance;
+
+        public HuntingState(MonoBehaviour target, Vector2 shootingBoxCastSize, float shootingDistance, float huntingDistance) : base(target)
         {
+            _shootingBoxCastSize = shootingBoxCastSize;
+            _shootingDistance = shootingDistance;
+            _huntingDistance = huntingDistance;
+
             Reset();
         }
 
@@ -31,12 +40,10 @@ namespace Assets.Scripts.StateMachine.States
         private void IsShoot()
         {
             var direction = VectorHelper.DegreeToVector2(_movingController.Angle);
-            var size = new Vector2(5, 1);
-            var distance = 20f;
 
-            var hits = Physics2D.BoxCastAll(_shootingController.transform.position.ToVector2(), size, 0, direction, distance);
+            var hits = Physics2D.BoxCastAll(_shootingController.transform.position.ToVector2(), _shootingBoxCastSize, 0, direction, _shootingDistance);
 
-            if(hits.GetFirstHitForLayer(8) != null)
+            if(hits.GetFirstHitForLayer(Consts.HeroLayer) != null)
             {
                 _shootingController.Shoot();
             }
@@ -64,11 +71,9 @@ namespace Assets.Scripts.StateMachine.States
         public override void CheckTransition(MachineContext context)
         {
             var distanceVector = victim.transform.position - _target.transform.position;
-            float distance = distanceVector.sqrMagnitude;
+            float distance = Mathf.Sqrt(distanceVector.sqrMagnitude);
 
-            var halfDistance = Mathf.Sqrt(distance);
-
-            if(halfDistance > 20f)
+            if(distance > _huntingDistance)
             {
                 context.SetState(MovingState.Name);
             }
@@ -76,9 +81,9 @@ namespace Assets.Scripts.StateMachine.States
 
         public override void Reset()
         {
-            var hits = Physics2D.CircleCastAll(_target.transform.position.ToVector2(), 20, Vector2.up);
+            var hits = Physics2D.CircleCastAll(_target.transform.position.ToVector2(), _huntingDistance, Vector2.up);
 
-            victim = hits.GetFirstHitForLayer(8);            
+            victim = hits.GetFirstHitForLayer(Consts.HeroLayer);            
         }             
     }
 }

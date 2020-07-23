@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Core;
+using Assets.Scripts.Core.Constants;
 using Assets.Scripts.StateMachine.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -16,14 +17,20 @@ namespace Assets.Scripts.StateMachine.States
 
         private Timer _timer;
 
-        public MovingState(MonoBehaviour target) : base(target)
+        private readonly Vector2 _movingTimeRange;
+        private readonly float _huntingDistance;
+
+        public MovingState(MonoBehaviour target, Vector2 movingTimeRange, float huntingDistance) : base(target)
         {
+            _movingTimeRange = movingTimeRange;
+            _huntingDistance = huntingDistance;
+
             Reset();
         }
 
         public override void Reset()
         {
-            _timer = new Timer(UnityEngine.Random.Range(0.7f, 1.8f));
+            _timer = new Timer(UnityEngine.Random.Range(_movingTimeRange.x, _movingTimeRange.y));
         }
 
         public override void Update(MachineContext context)
@@ -35,13 +42,13 @@ namespace Assets.Scripts.StateMachine.States
 
         public override void CheckTransition(MachineContext context)
         {
-            var results = Physics2D.CircleCastAll(_movingController.transform.position.ToVector2(), 20, Vector2.up);
+            var results = Physics2D.CircleCastAll(_movingController.transform.position.ToVector2(), _huntingDistance, Vector2.up);
 
             foreach (var item in results)
             {
                 if (item.collider != null)
                 {
-                    if (item.collider.gameObject.layer == 8)
+                    if (item.collider.gameObject.layer == Consts.HeroLayer)
                     {
                         context.SetState(HuntingState.Name);
                     }

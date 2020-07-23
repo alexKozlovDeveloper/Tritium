@@ -18,15 +18,19 @@ namespace Assets.Scripts.StateMachine.States
         private Timer _timer;
         private bool _direction;
 
-        public ChangeDirectionState(MonoBehaviour target) : base(target)
+        private readonly Vector2 _rotationTimeRange;
+
+        public ChangeDirectionState(MonoBehaviour target, Vector2 rotationTimeRange) : base(target)
         {
+            _rotationTimeRange = rotationTimeRange;
+
             Reset();
         }
 
         public override void Reset()
         {
-            _timer = new Timer(UnityEngine.Random.Range(0.1f, 0.8f));
-            _direction = UnityEngine.Random.Range(0f, 1f) > 0.5f;
+            _timer = new Timer(UnityEngine.Random.Range(_rotationTimeRange.x, _rotationTimeRange.y));
+            _direction = RandomHelper.RandomBool();
         }
 
         public override void Update(MachineContext context)
