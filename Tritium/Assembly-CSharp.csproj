@@ -67,11 +67,12 @@
     <Compile Include="Assets\Scripts\AutoMoving.cs" />
     <Compile Include="Assets\Scripts\BackgroundLayerController.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
+    <Compile Include="Assets\Scripts\Core\RaycastHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Timer.cs" />
     <Compile Include="Assets\Scripts\Core\VectorHelper.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\MovingController.cs" />
-    <Compile Include="Assets\Scripts\RayCastTest.cs" />
+    <Compile Include="Assets\Scripts\ScriptForTesting.cs" />
     <Compile Include="Assets\Scripts\ShootingController.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Factory\StateMachineFactory.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Interfaces\IState.cs" />

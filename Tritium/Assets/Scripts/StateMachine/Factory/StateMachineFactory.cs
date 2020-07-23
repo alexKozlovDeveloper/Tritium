@@ -13,9 +13,6 @@ namespace Assets.Scripts.StateMachine.Factory
     {
         public static MachineContext GetEnemyMachine(MonoBehaviour target)
         {
-            //var movingController = target.GetComponent<MovingController>();
-            //var shootingController = target.GetComponent<ShootingController>();
-
             var states = new List<IState>()
             {
                 new MovingState(target),

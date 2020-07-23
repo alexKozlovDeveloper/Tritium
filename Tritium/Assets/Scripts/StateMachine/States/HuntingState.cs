@@ -14,42 +14,39 @@ namespace Assets.Scripts.StateMachine.States
         public static string Name = "Hunting";
         public override string StateName { get { return Name; } }
 
-        //private readonly ShootingController _shootingController;
-
         private GameObject victim = null;
-
-        //private Timer _timer;
 
         public HuntingState(MonoBehaviour target) : base(target)
         {
-            //_shootingController = shootingController;
-
             Reset();
         }
 
         public override void Update(MachineContext context)
         {
-            // _timer.AddPassedTime(Time.deltaTime);
+            IsShoot();
+            IsRotate();
+            IsMoving();
+        }
 
-            //_shootingController.Shoot();
+        private void IsShoot()
+        {
+            var direction = VectorHelper.DegreeToVector2(_movingController.Angle);
+            var size = new Vector2(5, 1);
+            var distance = 20f;
 
-            var result2 = Physics2D.BoxCast(_shootingController.transform.position.ToVector2(), new Vector2(5, 1), 0, VectorHelper.DegreeToVector2(_movingController.Angle), 20f);
+            var hits = Physics2D.BoxCastAll(_shootingController.transform.position.ToVector2(), size, 0, direction, distance);
 
-            if (result2.collider != null)
+            if(hits.GetFirstHitForLayer(8) != null)
             {
                 _shootingController.Shoot();
-
-                //Debug.Log($"Hit object '{result.collider.gameObject.name}' layer '{LayerMask.LayerToName(result.collider.gameObject.layer)}'");
             }
+        }
 
-
+        private void IsRotate()
+        {
             var localVictimPos = _target.transform.InverseTransformPoint(victim.transform.position);
 
-            //var distanceVector =  - ;
-
-            Debug.Log($"localVictimPos: {localVictimPos}");
-
-            if(localVictimPos.x > 0)
+            if (localVictimPos.x > 0)
             {
                 _movingController.RotateRight();
             }
@@ -57,7 +54,10 @@ namespace Assets.Scripts.StateMachine.States
             {
                 _movingController.RotateLeft();
             }
+        }
 
+        private void IsMoving()
+        {
             _movingController.MoveForward();
         }
 
@@ -72,33 +72,13 @@ namespace Assets.Scripts.StateMachine.States
             {
                 context.SetState(MovingState.Name);
             }
-
-            //Debug.Log($"Distance: {distance}:half-{halfDistance}[{distanceVector}] pos: '{_target.transform.position}' victim: '{victim.transform.position}'");
-
-            //if (_timer.IsTimeEnd)
-            //{
-            //    context.SetState(MovingState.Name);
-            //}
-
-
         }
 
         public override void Reset()
         {
-            //_timer = new Timer(UnityEngine.Random.Range(0.7f, 1.1f));
+            var hits = Physics2D.CircleCastAll(_target.transform.position.ToVector2(), 20, Vector2.up);
 
-            var results = Physics2D.CircleCastAll(_shootingController.transform.position.ToVector2(), 20, Vector2.up);
-
-            foreach (var item in results)
-            {
-                if (item.collider != null)
-                {
-                    if (item.collider.gameObject.layer == 8)
-                    {
-                        victim = item.collider.gameObject;
-                    }
-                }
-            }
-        }
+            victim = hits.GetFirstHitForLayer(8);            
+        }             
     }
 }
