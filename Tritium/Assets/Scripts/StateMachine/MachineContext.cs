@@ -29,7 +29,7 @@ namespace Assets.Scripts.StateMachine
 
         public void Update() 
         {
-            _currentState.Update(this);
+            _currentState.Update();
             _currentState.CheckTransition(this);
         }
 

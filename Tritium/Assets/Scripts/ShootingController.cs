@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,10 @@ public class ShootingController : MonoBehaviour
 
             newBullet.transform.position = transform.position;
             newBullet.transform.rotation = transform.rotation;
+
+            newBullet.name += $"_{Guid.NewGuid()}";
+
+            newBullet.GetComponent<DamageDealer>().Creator = this.gameObject;
 
             _timer.ResetTime(reloadTime);
         }

@@ -66,13 +66,16 @@
     <Compile Include="Assets\Scripts\AutoDestroy.cs" />
     <Compile Include="Assets\Scripts\AutoMoving.cs" />
     <Compile Include="Assets\Scripts\BackgroundLayerController.cs" />
+    <Compile Include="Assets\Scripts\Bounce.cs" />
     <Compile Include="Assets\Scripts\Core\Constants\Consts.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
     <Compile Include="Assets\Scripts\Core\RandomHelper.cs" />
     <Compile Include="Assets\Scripts\Core\RaycastHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Timer.cs" />
     <Compile Include="Assets\Scripts\Core\VectorHelper.cs" />
+    <Compile Include="Assets\Scripts\DamageDealer.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\HealthController.cs" />
     <Compile Include="Assets\Scripts\MovingController.cs" />
     <Compile Include="Assets\Scripts\ScriptForTesting.cs" />
     <Compile Include="Assets\Scripts\ShootingController.cs" />

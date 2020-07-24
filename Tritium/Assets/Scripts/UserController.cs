@@ -36,7 +36,8 @@ public class UserController : MonoBehaviour
             _movingController.MoveForward();
         }
 
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (_keyStateController[KeyCode.Space])
         {
             _shootingController.Shoot();
         }

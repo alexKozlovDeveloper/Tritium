@@ -10,7 +10,7 @@ namespace Assets.Scripts.StateMachine.Interfaces
     {
         string StateName { get; }
         void Reset();
-        void Update(MachineContext context);
+        void Update();
         void CheckTransition(MachineContext context);
     }
 }

@@ -17,16 +17,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Vector2 shootingBoxCastSize = new Vector2(5, 1);
     [SerializeField] private float shootingDistance = 20f;
 
-    private MovingController _movingController;
-    private ShootingController _shootingController;
-
     private MachineContext stateMachine;
 
     void Start()
     {
-        _movingController = GetComponent<MovingController>();
-        _shootingController = GetComponent<ShootingController>();
-
         //stateMachine = StateMachineFactory.GetEnemyMachine(this);
 
         var states = new List<IState>()

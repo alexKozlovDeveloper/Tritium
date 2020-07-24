@@ -33,7 +33,7 @@ namespace Assets.Scripts.StateMachine.States
             _direction = RandomHelper.RandomBool();
         }
 
-        public override void Update(MachineContext context)
+        public override void Update()
         {
             _timer.AddPassedTime(Time.deltaTime);
 
@@ -51,6 +51,7 @@ namespace Assets.Scripts.StateMachine.States
         {
             if (_timer.IsTimeEnd)
             {
+                //Debug.Log($"ChangeDirectionState time si over, go to Moving State");
                 context.SetState(MovingState.Name);
             }
         }

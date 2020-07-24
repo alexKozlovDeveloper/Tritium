@@ -27,10 +27,10 @@ namespace Assets.Scripts.StateMachine.States
             _shootingDistance = shootingDistance;
             _huntingDistance = huntingDistance;
 
-            Reset();
+            //Reset();
         }
 
-        public override void Update(MachineContext context)
+        public override void Update()
         {
             IsShoot();
             IsRotate();
@@ -75,15 +75,23 @@ namespace Assets.Scripts.StateMachine.States
 
             if(distance > _huntingDistance)
             {
+                //Debug.Log($"HuntingState far distance, go to Moving State");
                 context.SetState(MovingState.Name);
             }
+
+            //Debug.Log($"HuntingState Distance: '{distance}'");
         }
 
         public override void Reset()
         {
             var hits = Physics2D.CircleCastAll(_target.transform.position.ToVector2(), _huntingDistance, Vector2.up);
 
-            victim = hits.GetFirstHitForLayer(Consts.HeroLayer);            
+            victim = hits.GetFirstHitForLayer(Consts.HeroLayer);   
+            
+            //if(victim != null)
+            //{
+                //Debug.Log($"Hunting reset, found an enemy '{victim.gameObject.name}'");
+            //}
         }             
     }
 }

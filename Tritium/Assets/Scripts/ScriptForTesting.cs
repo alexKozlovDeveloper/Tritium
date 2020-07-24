@@ -18,4 +18,9 @@ public class ScriptForTesting : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log($"CCC: [{gameObject.name}] x [{collision.gameObject.name}]");
+    }
 }

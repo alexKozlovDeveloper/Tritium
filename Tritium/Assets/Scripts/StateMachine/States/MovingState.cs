@@ -33,7 +33,7 @@ namespace Assets.Scripts.StateMachine.States
             _timer = new Timer(UnityEngine.Random.Range(_movingTimeRange.x, _movingTimeRange.y));
         }
 
-        public override void Update(MachineContext context)
+        public override void Update()
         {
             _timer.AddPassedTime(Time.deltaTime);
 
@@ -50,14 +50,18 @@ namespace Assets.Scripts.StateMachine.States
                 {
                     if (item.collider.gameObject.layer == Consts.HeroLayer)
                     {
+                        //Debug.Log($"MovingState found a anemy, go to Hunting State");
                         context.SetState(HuntingState.Name);
+                        return;
                     }
                 }
             }
 
             if (_timer.IsTimeEnd)
             {
+                //Debug.Log($"MovingState time si over, go to ChangeDirection State");
                 context.SetState(ChangeDirectionState.Name);
+                return;
             }
         }
     }

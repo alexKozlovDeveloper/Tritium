@@ -17,8 +17,6 @@ namespace Assets.Scripts.Core
         {
             _keyStates = new Dictionary<KeyCode, bool>();
 
-            Debug.Log($"is keys {keys.Length}");
-
             foreach (var key in keys)
             {
                 _keyStates.Add(key, false);

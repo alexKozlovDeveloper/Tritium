@@ -27,6 +27,6 @@ namespace Assets.Scripts.StateMachine.States
 
         public abstract void CheckTransition(MachineContext context);
         public abstract void Reset();
-        public abstract void Update(MachineContext context);
+        public abstract void Update();
     }
 }
