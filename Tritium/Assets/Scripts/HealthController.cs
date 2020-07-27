@@ -4,34 +4,42 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] private float HealthPoints = 100f;
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private float MaxHealthPoints = 100f;
+
+    private float healthPoints;
 
     public bool IsDead
     {
         get
         {
-            return HealthPoints <= 0f;
+            return healthPoints <= 0f;
         }
     }
 
     void Start()
     {
-        
+        healthPoints = MaxHealthPoints;
     }
 
     void Update()
     {
         if (IsDead)
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 
     public void MakeDamage(float damage)
     {
-        HealthPoints -= damage;
+        healthPoints -= damage;
 
-        Debug.Log($"[{this.gameObject.name}] HP: {HealthPoints}");
+        Debug.Log($"[{this.gameObject.name}] HP: {healthPoints}");
+
+        if(healthBar != null)
+        {
+            healthBar.SetHealth01(healthPoints / MaxHealthPoints);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
