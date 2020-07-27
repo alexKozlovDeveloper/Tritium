@@ -6,6 +6,7 @@ public class HealthController : MonoBehaviour
 {
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private float MaxHealthPoints = 100f;
+    [SerializeField] private GameObject deathAnimation;
 
     private float healthPoints;
 
@@ -26,6 +27,13 @@ public class HealthController : MonoBehaviour
     {
         if (IsDead)
         {
+            if(deathAnimation != null)
+            {
+                var deathItem = Instantiate(deathAnimation);
+
+                deathItem.transform.position = transform.position;
+            }
+
             Destroy(this.gameObject);
         }
     } 
