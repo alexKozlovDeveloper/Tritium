@@ -22,13 +22,13 @@ public class HealthController : MonoBehaviour
         healthPoints = MaxHealthPoints;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (IsDead)
         {
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
-    }
+    } 
 
     public void MakeDamage(float damage)
     {

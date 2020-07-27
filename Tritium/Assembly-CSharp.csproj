@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\DamageDealer.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\HealthController.cs" />
+    <Compile Include="Assets\Scripts\Items\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Items\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Items\SlaveContainer.cs" />
     <Compile Include="Assets\Scripts\MovingController.cs" />

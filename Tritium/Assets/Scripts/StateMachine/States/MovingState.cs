@@ -42,20 +42,28 @@ namespace Assets.Scripts.StateMachine.States
 
         public override void CheckTransition(MachineContext context)
         {
-            var results = Physics2D.CircleCastAll(_movingController.transform.position.ToVector2(), _huntingDistance, Vector2.up);
+            var hits = Physics2D.CircleCastAll(_movingController.transform.position.ToVector2(), _huntingDistance, Vector2.up);
 
-            foreach (var item in results)
+            if(hits.GetFirstHitForLayer(Consts.StarshipLayer, _target.gameObject) != null)
             {
-                if (item.collider != null)
-                {
-                    if (item.collider.gameObject.layer == Consts.HeroLayer)
-                    {
-                        //Debug.Log($"MovingState found a anemy, go to Hunting State");
-                        context.SetState(HuntingState.Name);
-                        return;
-                    }
-                }
+                context.SetState(HuntingState.Name);
+                return;
             }
+
+            //foreach (var item in results)
+            //{
+            //    if (item.collider != null)
+            //    {
+            //        if (item.collider.gameObject.layer == Consts.StarshipLayer)
+            //        {
+            //            //Debug.Log($"MovingState found a anemy, go to Hunting State");
+            //            context.SetState(HuntingState.Name);
+            //            return;
+            //        }
+            //    }
+            //}
+
+
 
             if (_timer.IsTimeEnd)
             {

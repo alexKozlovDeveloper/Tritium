@@ -8,6 +8,8 @@ namespace Assets.Scripts.Core.Constants
 {
     public static class Consts
     {
-        public const int HeroLayer = 8;
+        public const int HeroStarshipLayer = 8;
+        public const int EnemyStarshipLayer = 9;
+        public const int StarshipLayer = 10;
     }
 }

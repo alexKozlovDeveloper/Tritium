@@ -32,6 +32,11 @@ namespace Assets.Scripts.StateMachine.States
 
         public override void Update()
         {
+            if(victim == null)
+            {
+                return;
+            }
+
             IsShoot();
             IsRotate();
             IsMoving();
@@ -43,7 +48,7 @@ namespace Assets.Scripts.StateMachine.States
 
             var hits = Physics2D.BoxCastAll(_shootingController.transform.position.ToVector2(), _shootingBoxCastSize, 0, direction, _shootingDistance);
 
-            if(hits.GetFirstHitForLayer(Consts.HeroLayer) != null)
+            if(hits.GetFirstHitForLayer(Consts.StarshipLayer, _target.gameObject) != null)
             {
                 _shootingController.Shoot();
             }
@@ -65,11 +70,23 @@ namespace Assets.Scripts.StateMachine.States
 
         private void IsMoving()
         {
-            _movingController.MoveForward();
+            var distanceVector = victim.transform.position - _target.transform.position;
+            float distance = Mathf.Sqrt(distanceVector.sqrMagnitude);
+
+            if(distance > _huntingDistance / 3f)
+            {
+                _movingController.MoveForward();
+            }            
         }
 
         public override void CheckTransition(MachineContext context)
         {
+            if(victim == null)
+            {
+                context.SetState(MovingState.Name);
+                return;
+            }
+
             var distanceVector = victim.transform.position - _target.transform.position;
             float distance = Mathf.Sqrt(distanceVector.sqrMagnitude);
 
@@ -77,6 +94,7 @@ namespace Assets.Scripts.StateMachine.States
             {
                 //Debug.Log($"HuntingState far distance, go to Moving State");
                 context.SetState(MovingState.Name);
+                return;
             }
 
             //Debug.Log($"HuntingState Distance: '{distance}'");
@@ -86,7 +104,7 @@ namespace Assets.Scripts.StateMachine.States
         {
             var hits = Physics2D.CircleCastAll(_target.transform.position.ToVector2(), _huntingDistance, Vector2.up);
 
-            victim = hits.GetFirstHitForLayer(Consts.HeroLayer);   
+            victim = hits.GetFirstHitForLayer(Consts.StarshipLayer, _target.gameObject);   
             
             //if(victim != null)
             //{
