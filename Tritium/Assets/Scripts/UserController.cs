@@ -19,7 +19,7 @@ public class UserController : MonoBehaviour
         _keyStateController = GetComponent<KeyStateController>();
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (_keyStateController[KeyCode.A])
         {
