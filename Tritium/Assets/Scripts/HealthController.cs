@@ -48,6 +48,8 @@ public class HealthController : MonoBehaviour
         {
             healthBar.SetHealth01(healthPoints / MaxHealthPoints);
         }
+
+        gameObject.SendMessage("ActivateColorEffect", SendMessageOptions.DontRequireReceiver);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

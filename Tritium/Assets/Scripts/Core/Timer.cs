@@ -8,37 +8,34 @@ namespace Assets.Scripts.Core
 {
     class Timer
     {
-        private float _time;
-
-        public float Time
-        {
-            get
-            {
-                return _time;
-            }
-        }
+        public float Time { get; private set; }
 
         public Timer(float time)
         {
-            _time = time;
+            Time = time;
+        }
+
+        public Timer()
+        {
+            Time = 0f;
         }
 
         public bool IsTimeEnd
         {
             get
             {
-                return _time <= 0;
+                return Time <= 0;
             }
         }
 
         public void AddPassedTime(float delta)
         {
-            _time -= delta;
+            Time -= delta;
         }
 
         public void ResetTime(float time)
         {
-            _time = time;
+            Time = time;
         }
     }
 }

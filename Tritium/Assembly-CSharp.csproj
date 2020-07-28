@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\AutoMoving.cs" />
     <Compile Include="Assets\Scripts\BackgroundLayerController.cs" />
     <Compile Include="Assets\Scripts\Bounce.cs" />
+    <Compile Include="Assets\Scripts\ColorEffect.cs" />
     <Compile Include="Assets\Scripts\Core\Constants\Consts.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
     <Compile Include="Assets\Scripts\Core\RandomHelper.cs" />
