@@ -33,9 +33,15 @@ public class MovingController : MonoBehaviour
 
         CurrentSpeed = Mathf.Clamp(CurrentSpeed, 0, movingSpeed);
 
-        var velocity = transform.rotation * Vector3.up * CurrentSpeed * Time.deltaTime;
+        //var velocity = transform.rotation * Vector3.up * CurrentSpeed * Time.deltaTime;
+        var velocity = transform.rotation * Vector3.up * CurrentSpeed;
 
-        transform.position += velocity;
+        //transform.position += velocity;
+
+        var rigidbody = GetComponent<Rigidbody2D>();
+
+        rigidbody.velocity = velocity;
+
 
         CurrentSpeed -= movingSpeed * Time.deltaTime * decelerationSpeed;
 
