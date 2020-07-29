@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomEnemySpawner : MonoBehaviour
+public class RandomEnemySpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
     [SerializeField] private Vector2 spawnAreaSize = new Vector2(200, 200);

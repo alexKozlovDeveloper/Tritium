@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.Items.Entityes
+namespace Assets.Scripts.Controllers.Entityes
 {
     class StarshipContainer
     {

@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Items.Entityes;
+﻿using Assets.Scripts.Controllers.Entityes;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageDealer : MonoBehaviour
+public class DamageController : MonoBehaviour
 {
     [SerializeField] private float damage = 20f;
 

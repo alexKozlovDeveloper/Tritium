@@ -27,7 +27,7 @@ public class ShootingController : MonoBehaviour
 
             newBullet.name += $"_{Guid.NewGuid()}";
 
-            newBullet.GetComponent<DamageDealer>().Creator = this.gameObject;
+            newBullet.GetComponent<DamageController>().Creator = this.gameObject;
 
             _timer.ResetTime(reloadTime);
         }

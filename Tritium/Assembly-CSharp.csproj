@@ -63,12 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AutoDestroy.cs" />
-    <Compile Include="Assets\Scripts\AutoMoving.cs" />
-    <Compile Include="Assets\Scripts\BackgroundLayerController.cs" />
-    <Compile Include="Assets\Scripts\Bounce.cs" />
-    <Compile Include="Assets\Scripts\ColorEffect.cs" />
-    <Compile Include="Assets\Scripts\CompanyController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\BackgroundLayerController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\CompanyController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\DamageController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\EffectsController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Entityes\StarshipContainer.cs" />
+    <Compile Include="Assets\Scripts\Controllers\HealthController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\MovingController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\RandomEnemySpawnController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ShootingController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\StarshipSpawnController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\UserController.cs" />
     <Compile Include="Assets\Scripts\Core\Constants\Consts.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
     <Compile Include="Assets\Scripts\Core\Messenging\GameEvent.cs" />
@@ -77,20 +83,13 @@
     <Compile Include="Assets\Scripts\Core\RaycastHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Timer.cs" />
     <Compile Include="Assets\Scripts\Core\VectorHelper.cs" />
-    <Compile Include="Assets\Scripts\DamageDealer.cs" />
-    <Compile Include="Assets\Scripts\EffectsController.cs" />
-    <Compile Include="Assets\Scripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\HealthController.cs" />
-    <Compile Include="Assets\Scripts\Items\Entityes\StarshipContainer.cs" />
-    <Compile Include="Assets\Scripts\Items\HealthBar.cs" />
-    <Compile Include="Assets\Scripts\Items\KeepRotating.cs" />
-    <Compile Include="Assets\Scripts\Items\RandomEnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\Items\SlaveContainer.cs" />
-    <Compile Include="Assets\Scripts\Items\StarshipSpawnController.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
-    <Compile Include="Assets\Scripts\MovingController.cs" />
-    <Compile Include="Assets\Scripts\ScriptForTesting.cs" />
-    <Compile Include="Assets\Scripts\ShootingController.cs" />
+    <Compile Include="Assets\Scripts\Other\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Primitives\AutoDestroy.cs" />
+    <Compile Include="Assets\Scripts\Primitives\AutoMoving.cs" />
+    <Compile Include="Assets\Scripts\Primitives\ColorEffect.cs" />
+    <Compile Include="Assets\Scripts\Primitives\KeepRotating.cs" />
+    <Compile Include="Assets\Scripts\Primitives\SlaveContainer.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Factory\StateMachineFactory.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Interfaces\IState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\MachineContext.cs" />
@@ -98,7 +97,6 @@
     <Compile Include="Assets\Scripts\StateMachine\States\ChangeDirectionState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\HuntingState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\MovingState.cs" />
-    <Compile Include="Assets\Scripts\UserController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
