@@ -29,6 +29,14 @@ public class KillCountController : MonoBehaviour
         
     }
 
+    public void AddStarship(GameObject starship)
+    {
+        if (Score.Keys.Contains(starship) == false)
+        {
+            Score.Add(starship, 0);
+        }
+    }
+
     private void OnStarshipDestroy(StarshipDestroyInfo info)
     {
         if(Score.Keys.Contains(info.Destroyer) == false)

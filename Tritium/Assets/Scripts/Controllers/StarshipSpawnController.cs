@@ -36,16 +36,16 @@ public class StarshipSpawnController : MonoBehaviour
                 starship.GameObject.SetActive(false);
                 starship.Health.ResetHealth();
                 starship.RespawnTimer.ResetTime(respawnTime);
-
-                var x = Random.Range(transform.position.x - spawnAreaSize.x / 2f, transform.position.x + spawnAreaSize.x / 2f);
-                var y = Random.Range(transform.position.y - spawnAreaSize.y / 2f, transform.position.y + spawnAreaSize.y / 2f);
-
-                starship.GameObject.transform.position = new Vector3(x, y, 0);
             }
             else
             {
                 if (starship.RespawnTimer.IsTimeEnd && starship.GameObject.activeSelf == false)
                 {
+                    var x = Random.Range(transform.position.x - spawnAreaSize.x / 2f, transform.position.x + spawnAreaSize.x / 2f);
+                    var y = Random.Range(transform.position.y - spawnAreaSize.y / 2f, transform.position.y + spawnAreaSize.y / 2f);
+
+                    starship.GameObject.transform.position = new Vector3(x, y, 0);
+
                     starship.GameObject.SetActive(true);
                 }
             }
@@ -56,6 +56,8 @@ public class StarshipSpawnController : MonoBehaviour
 
     public void AddStarship(GameObject starship, float startRespawnTime = 0f)
     {
+        Debug.Log($"random time {startRespawnTime}");
+
         var container = new StarshipContainer(starship);
 
         container.GameObject.SetActive(false);

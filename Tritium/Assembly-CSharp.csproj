@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Core\RaycastHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Timer.cs" />
     <Compile Include="Assets\Scripts\Core\VectorHelper.cs" />
+    <Compile Include="Assets\Scripts\Menu\GameStatisticController.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
     <Compile Include="Assets\Scripts\Other\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Primitives\AutoDestroy.cs" />

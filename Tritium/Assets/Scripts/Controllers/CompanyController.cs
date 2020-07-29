@@ -10,6 +10,8 @@ public class CompanyController : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject hero;
 
+    [SerializeField] private KillCountController killCountController;
+
     public float starshipCount = 10;
     public float deathmatchTime = 200f;
 
@@ -25,8 +27,9 @@ public class CompanyController : MonoBehaviour
         }
 
         starshipSpawnController.AddStarship(hero);
+        killCountController?.AddStarship(hero);
 
-        while(starshipSpawnController.StarshipCount < starshipCount)
+        while (starshipSpawnController.StarshipCount < starshipCount)
         {
             var enemy = Instantiate(enemyPrefab);
 
@@ -35,6 +38,7 @@ public class CompanyController : MonoBehaviour
             enemy.transform.SetParent(transform);
 
             starshipSpawnController.AddStarship(enemy, Random.Range(0.9f, 2.4f));
+            killCountController?.AddStarship(enemy);
         }
     }
 
