@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Core.Messenging.Entityes;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,17 +32,17 @@ public class HealthController : MonoBehaviour
         HealthPoints = Mathf.Clamp(healthPoints, 0, MaxHealthPoints);
     }
 
-    public void MakeDamage(float damage)
+    public void MakeDamage(float damage, GameObject damageDealer)
     {
         HealthPoints -= damage;
 
         HealthPoints = Mathf.Clamp(HealthPoints, 0, MaxHealthPoints);
 
-        Messenger<GameObject>.Broadcast(GameEvent.STARSHIP_HIT, gameObject);
+        Messenger<StarshipHitInfo>.Broadcast(GameEvent.STARSHIP_HIT, new StarshipHitInfo { Victim = this.gameObject, DamageDealer = damageDealer, Damage = damage });
 
         if (IsDead)
         {
-            Messenger<GameObject>.Broadcast(GameEvent.STARSHIP_DESTROY, gameObject);
+            Messenger<StarshipDestroyInfo>.Broadcast(GameEvent.STARSHIP_DESTROY, new StarshipDestroyInfo { Victim = this.gameObject, Destroyer = damageDealer});
         }
     }
 }

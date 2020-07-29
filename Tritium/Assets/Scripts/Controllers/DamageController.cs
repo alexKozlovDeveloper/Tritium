@@ -16,16 +16,6 @@ public class DamageController : MonoBehaviour
         } 
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {       
         if(Creator != null)
@@ -40,8 +30,7 @@ public class DamageController : MonoBehaviour
 
         if(healthController != null)
         {
-            Debug.Log($"DamageDealer: give {damage} damage to {collision.gameObject.name}");
-            healthController.MakeDamage(damage);
+            healthController.MakeDamage(damage, Creator);
             Destroy(this.gameObject);
         }
     }

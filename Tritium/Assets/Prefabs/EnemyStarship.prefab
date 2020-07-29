@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 12
-  rotationSpeed: 160
+  rotationSpeed: 210
   decelerationSpeed: 0.35
 --- !u!114 &6497320367472587709
 MonoBehaviour:
@@ -163,10 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca974658147cf2b469f3ee80297f1075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
   MaxHealthPoints: 100
-  deathAnimation: {fileID: 3094912254917661387, guid: 75dff6259288deb4aa86c5135775a5d4,
-    type: 3}
 --- !u!50 &6497320367472587718
 Rigidbody2D:
   serializedVersion: 4

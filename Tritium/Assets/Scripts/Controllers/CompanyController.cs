@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,17 +11,18 @@ public class CompanyController : MonoBehaviour
     [SerializeField] private GameObject hero;
 
     public float starshipCount = 10;
+    public float deathmatchTime = 200f;
+
+    private Timer _timer;
 
     void Start()
     {
-        if(starshipSpawnController == null)
+        _timer = new Timer(deathmatchTime);
+
+        if (starshipSpawnController == null)
         {
             return;
         }
-        
-        //var hero = Instantiate(heroPrefab);
-
-        //hero.transform.SetParent(transform);
 
         starshipSpawnController.AddStarship(hero);
 
@@ -28,14 +30,16 @@ public class CompanyController : MonoBehaviour
         {
             var enemy = Instantiate(enemyPrefab);
 
+            enemy.name = "Bot_" + NameHelper.GetRandomName();
+
             enemy.transform.SetParent(transform);
 
-            starshipSpawnController.AddStarship(enemy);
+            starshipSpawnController.AddStarship(enemy, Random.Range(0.9f, 2.4f));
         }
     }
 
     void Update()
     {
-        
+        _timer.AddPassedTime(Time.deltaTime);
     }
 }

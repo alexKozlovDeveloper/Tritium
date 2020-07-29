@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Core.Messenging.Entityes;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,26 +9,26 @@ public class EffectsController : MonoBehaviour
 
     private void Awake()
     {
-        Messenger<GameObject>.AddListener(GameEvent.STARSHIP_DESTROY, OnStarshipDestroy);
-        Messenger<GameObject>.AddListener(GameEvent.STARSHIP_HIT, OnStarshipHit);
+        Messenger<StarshipDestroyInfo>.AddListener(GameEvent.STARSHIP_DESTROY, OnStarshipDestroy);
+        Messenger<StarshipHitInfo>.AddListener(GameEvent.STARSHIP_HIT, OnStarshipHit);
     }
 
     private void OnDestroy()
     {
-        Messenger<GameObject>.RemoveListener(GameEvent.STARSHIP_DESTROY, OnStarshipDestroy);
-        Messenger<GameObject>.RemoveListener(GameEvent.STARSHIP_HIT, OnStarshipHit);
+        Messenger<StarshipDestroyInfo>.RemoveListener(GameEvent.STARSHIP_DESTROY, OnStarshipDestroy);
+        Messenger<StarshipHitInfo>.RemoveListener(GameEvent.STARSHIP_HIT, OnStarshipHit);
     }
 
-    private void OnStarshipDestroy(GameObject target)
+    private void OnStarshipDestroy(StarshipDestroyInfo info)
     {
         var anim = Instantiate(destroyAnimation);
 
-        anim.transform.position = target.transform.position;
+        anim.transform.position = info.Victim.transform.position;
     }
 
-    private void OnStarshipHit(GameObject target)
+    private void OnStarshipHit(StarshipHitInfo info)
     {
-        var colorEffect = target.GetComponent<ColorEffect>();
+        var colorEffect = info.Victim.GetComponent<ColorEffect>();
 
         colorEffect.ActivateColorEffect();
     }

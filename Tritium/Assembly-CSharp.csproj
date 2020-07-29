@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Controllers\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Entityes\StarshipContainer.cs" />
     <Compile Include="Assets\Scripts\Controllers\HealthController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\KillCountController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MovingController.cs" />
     <Compile Include="Assets\Scripts\Controllers\RandomEnemySpawnController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ShootingController.cs" />
@@ -77,8 +78,11 @@
     <Compile Include="Assets\Scripts\Controllers\UserController.cs" />
     <Compile Include="Assets\Scripts\Core\Constants\Consts.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
+    <Compile Include="Assets\Scripts\Core\Messenging\Entityes\StarshipDestroyInfo.cs" />
+    <Compile Include="Assets\Scripts\Core\Messenging\Entityes\StarshipHitInfo.cs" />
     <Compile Include="Assets\Scripts\Core\Messenging\GameEvent.cs" />
     <Compile Include="Assets\Scripts\Core\Messenging\Messenger.cs" />
+    <Compile Include="Assets\Scripts\Core\NameHelper.cs" />
     <Compile Include="Assets\Scripts\Core\RandomHelper.cs" />
     <Compile Include="Assets\Scripts\Core\RaycastHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Timer.cs" />
