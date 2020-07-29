@@ -33,14 +33,14 @@ public class StarshipSpawnController : MonoBehaviour
         {
             if (starship.Health.IsDead)
             {
-                starship.GameObject.SetActive(false);
                 starship.Health.ResetHealth();
+                starship.GameObject.SetActive(false);                
                 starship.RespawnTimer.ResetTime(respawnTime);
             }
             else
             {
                 if (starship.RespawnTimer.IsTimeEnd && starship.GameObject.activeSelf == false)
-                {
+                {                   
                     var x = Random.Range(transform.position.x - spawnAreaSize.x / 2f, transform.position.x + spawnAreaSize.x / 2f);
                     var y = Random.Range(transform.position.y - spawnAreaSize.y / 2f, transform.position.y + spawnAreaSize.y / 2f);
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] private float MaxHealthPoints = 100f;
+    [SerializeField] private float maxHealthPoints = 100f;
 
     public float HealthPoints { get; private set; }
 
@@ -17,6 +17,14 @@ public class HealthController : MonoBehaviour
         }
     }
 
+    public float MaxHealthPoints 
+    { 
+        get
+        {
+            return maxHealthPoints;
+        } 
+    }
+
     void Start()
     {
         ResetHealth();
@@ -24,19 +32,19 @@ public class HealthController : MonoBehaviour
 
     public void ResetHealth()
     {
-        HealthPoints = MaxHealthPoints;
+        HealthPoints = maxHealthPoints;
     }
 
     public void SetHealth(float healthPoints)
     {
-        HealthPoints = Mathf.Clamp(healthPoints, 0, MaxHealthPoints);
+        HealthPoints = Mathf.Clamp(healthPoints, 0, maxHealthPoints);
     }
 
     public void MakeDamage(float damage, GameObject damageDealer)
     {
         HealthPoints -= damage;
 
-        HealthPoints = Mathf.Clamp(HealthPoints, 0, MaxHealthPoints);
+        HealthPoints = Mathf.Clamp(HealthPoints, 0, maxHealthPoints);
 
         Messenger<StarshipHitInfo>.Broadcast(GameEvent.STARSHIP_HIT, new StarshipHitInfo { Victim = this.gameObject, DamageDealer = damageDealer, Damage = damage });
 

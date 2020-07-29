@@ -81,7 +81,7 @@ namespace Assets.Scripts.StateMachine.States
 
         public override void CheckTransition(MachineContext context)
         {
-            if(victim == null)
+            if(victim == null || victim.activeSelf == false)
             {
                 context.SetState(MovingState.Name);
                 return;

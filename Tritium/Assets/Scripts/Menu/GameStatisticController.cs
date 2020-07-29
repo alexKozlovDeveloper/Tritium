@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameStatisticController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI KillCount;
     [SerializeField] private TextMeshProUGUI Score;
+    [SerializeField] private Slider HealthPointsSlider;
 
     [SerializeField] private KillCountController killCountController;
 
@@ -22,8 +24,18 @@ public class GameStatisticController : MonoBehaviour
 
     void Update()
     {
-        KillCount.text = killCountController.Score[hero].ToString();      
+        SetKillCount();
+        SetScoreTable();
+        SetHealthPointSlider();
+    }
 
+    private void SetKillCount()
+    {
+        KillCount.text = killCountController.Score[hero].ToString();
+    }
+
+    private void SetScoreTable()
+    {
         var scoreTable = new StringBuilder();
 
         var scoreList = killCountController.Score.ToList();
@@ -36,5 +48,14 @@ public class GameStatisticController : MonoBehaviour
         }
 
         Score.text = scoreTable.ToString();
+    }
+
+    private void SetHealthPointSlider()
+    {
+        var hpController = hero.GetComponent<HealthController>();
+
+        var healthPersent = hpController.HealthPoints / hpController.MaxHealthPoints;
+
+        HealthPointsSlider.value = healthPersent;
     }
 }
