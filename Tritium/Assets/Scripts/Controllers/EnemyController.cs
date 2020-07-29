@@ -11,7 +11,7 @@ using UnityEngine;
 [RequireComponent(typeof(ShootingController))]
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Vector2 rotationTimeRange = new Vector2(0.1f, 0.8f);
+    [SerializeField] private Vector2 rotationTimeRange = new Vector2(0.3f, 0.8f);
     [SerializeField] private Vector2 movingTimeRange = new Vector2(0.7f, 1.8f);
     [SerializeField] private float huntingDistance = 20f;
     [SerializeField] private Vector2 shootingBoxCastSize = new Vector2(5, 1);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ public class GameStatisticController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI KillCount;
     [SerializeField] private TextMeshProUGUI Score;
+    [SerializeField] private TextMeshProUGUI Time;
     [SerializeField] private Slider HealthPointsSlider;
 
     [SerializeField] private KillCountController killCountController;
+    [SerializeField] private CompanyController companyController;
 
     [SerializeField] private GameObject hero;
 
@@ -27,27 +30,31 @@ public class GameStatisticController : MonoBehaviour
         SetKillCount();
         SetScoreTable();
         SetHealthPointSlider();
+        SetRestTime();
     }
 
     private void SetKillCount()
     {
-        KillCount.text = killCountController.Score[hero].ToString();
+        if (killCountController.Score.Keys.Contains(hero))
+        {
+            KillCount.text = killCountController.Score[hero].ToString();
+        }
     }
 
     private void SetScoreTable()
     {
-        var scoreTable = new StringBuilder();
+        //var scoreTable = new StringBuilder();
 
-        var scoreList = killCountController.Score.ToList();
+        //var scoreList = killCountController.Score.ToList();
 
-        scoreList.Sort((pair1, pair2) => pair2.Value.CompareTo(pair1.Value));
+        //scoreList.Sort((pair1, pair2) => pair2.Value.CompareTo(pair1.Value));
 
-        foreach (var item in scoreList)
-        {
-            scoreTable.Append($"{item.Key.name}: {item.Value} {Environment.NewLine}");
-        }
+        //foreach (var item in scoreList)
+        //{
+        //    scoreTable.Append($"{item.Key.name}: {item.Value} {Environment.NewLine}");
+        //}
 
-        Score.text = scoreTable.ToString();
+        Score.text = DictionaryHelper.GetSortedResult(killCountController.Score);
     }
 
     private void SetHealthPointSlider()
@@ -57,5 +64,12 @@ public class GameStatisticController : MonoBehaviour
         var healthPersent = hpController.HealthPoints / hpController.MaxHealthPoints;
 
         HealthPointsSlider.value = healthPersent;
+    }
+
+    private void SetRestTime()
+    {
+        var restTime = TimeSpan.FromSeconds(companyController.RestTime);
+        
+        Time.text = restTime.ToString(@"mm\:ss\:ff");
     }
 }

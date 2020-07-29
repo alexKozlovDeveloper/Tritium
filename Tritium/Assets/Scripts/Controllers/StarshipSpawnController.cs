@@ -22,11 +22,6 @@ public class StarshipSpawnController : MonoBehaviour
         _starships = new List<StarshipContainer>();
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         foreach (var starship in _starships)

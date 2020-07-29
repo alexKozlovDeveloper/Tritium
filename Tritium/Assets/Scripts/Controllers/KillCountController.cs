@@ -9,9 +9,14 @@ public class KillCountController : MonoBehaviour
 {
     public Dictionary<GameObject, int> Score { get; private set; }
 
-    void Start()
+    public KillCountController()
     {
         Score = new Dictionary<GameObject, int>();
+    }
+
+    void Start()
+    {
+        DontDestroyOnLoad(this.transform);
     }
 
     private void Awake()
@@ -47,5 +52,5 @@ public class KillCountController : MonoBehaviour
         Debug.Log($"{info.Destroyer.name} kill {info.Victim.name}");
 
         Score[info.Destroyer]++;
-    }
+    }  
 }

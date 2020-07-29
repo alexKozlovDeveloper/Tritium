@@ -42,4 +42,9 @@ public class UserController : MonoBehaviour
             _shootingController.Shoot();
         }
     }
+
+    public void Destroy()
+    {
+        Destroy(this);
+    }
 }

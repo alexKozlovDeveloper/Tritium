@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Controllers\StarshipSpawnController.cs" />
     <Compile Include="Assets\Scripts\Controllers\UserController.cs" />
     <Compile Include="Assets\Scripts\Core\Constants\Consts.cs" />
+    <Compile Include="Assets\Scripts\Core\DictionaryHelper.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
     <Compile Include="Assets\Scripts\Core\Messenging\Entityes\StarshipDestroyInfo.cs" />
     <Compile Include="Assets\Scripts\Core\Messenging\Entityes\StarshipHitInfo.cs" />
