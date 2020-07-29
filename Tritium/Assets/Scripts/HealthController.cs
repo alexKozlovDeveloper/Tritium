@@ -4,56 +4,44 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] private HealthBar healthBar;
     [SerializeField] private float MaxHealthPoints = 100f;
-    [SerializeField] private GameObject deathAnimation;
 
-    private float healthPoints;
+    public float HealthPoints { get; private set; }
 
     public bool IsDead
     {
         get
         {
-            return healthPoints <= 0f;
+            return HealthPoints <= 0f;
         }
     }
 
     void Start()
     {
-        healthPoints = MaxHealthPoints;
+        ResetHealth();
     }
 
-    void LateUpdate()
+    public void ResetHealth()
     {
-        if (IsDead)
-        {
-            if(deathAnimation != null)
-            {
-                var deathItem = Instantiate(deathAnimation);
+        HealthPoints = MaxHealthPoints;
+    }
 
-                deathItem.transform.position = transform.position;
-            }
-
-            Destroy(this.gameObject);
-        }
-    } 
+    public void SetHealth(float healthPoints)
+    {
+        HealthPoints = Mathf.Clamp(healthPoints, 0, MaxHealthPoints);
+    }
 
     public void MakeDamage(float damage)
     {
-        healthPoints -= damage;
+        HealthPoints -= damage;
 
-        Debug.Log($"[{this.gameObject.name}] HP: {healthPoints}");
+        HealthPoints = Mathf.Clamp(HealthPoints, 0, MaxHealthPoints);
 
-        if(healthBar != null)
+        Messenger<GameObject>.Broadcast(GameEvent.STARSHIP_HIT, gameObject);
+
+        if (IsDead)
         {
-            healthBar.SetHealth01(healthPoints / MaxHealthPoints);
+            Messenger<GameObject>.Broadcast(GameEvent.STARSHIP_DESTROY, gameObject);
         }
-
-        gameObject.SendMessage("ActivateColorEffect", SendMessageOptions.DontRequireReceiver);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log($"AAA: [{this.gameObject.name}] x [{collision.gameObject.name}]");
     }
 }

@@ -59,6 +59,8 @@ public class BackgroundLayerController : MonoBehaviour
             newItem.transform.position = new Vector3(x, y, level);
             newItem.transform.localScale = new Vector3(starsScaleMultiplier, starsScaleMultiplier, starsScaleMultiplier);
 
+            newItem.transform.SetParent(transform);
+
             result.Add(newItem);
         }
 
