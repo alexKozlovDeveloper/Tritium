@@ -6,9 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class ColorEffect : MonoBehaviour
 {
-    [SerializeField] private Color effectColor = Color.red;
-    [SerializeField] private float effectTime = 0.4f;
-
     private Color defaultColor;
 
     private SpriteRenderer spriteRenderer;
@@ -28,12 +25,12 @@ public class ColorEffect : MonoBehaviour
         }        
     }
 
-    public void ActivateColorEffect()
+    public void ActivateColorEffect(Color effectColor, float effectTime)
     {
-        StartCoroutine(nameof(EffectFunc));        
+        StartCoroutine(EffectFunc(effectColor, effectTime));        
     }
 
-    private IEnumerator EffectFunc()
+    private IEnumerator EffectFunc(Color effectColor, float effectTime)
     {
         var timer = new Timer(effectTime);
 

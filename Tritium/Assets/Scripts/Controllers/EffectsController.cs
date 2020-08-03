@@ -6,17 +6,22 @@ using UnityEngine;
 public class EffectsController : MonoBehaviour
 {
     [SerializeField] private GameObject destroyAnimation;
+    [SerializeField] private Color hitEffectColor = Color.red;
+    [SerializeField] private Color healingEffectColor = Color.green;
+    [SerializeField] private float effectTime = 0.4f;
 
     private void Awake()
     {
         Messenger<StarshipDestroyInfo>.AddListener(GameEvent.STARSHIP_DESTROY, OnStarshipDestroy);
         Messenger<StarshipHitInfo>.AddListener(GameEvent.STARSHIP_HIT, OnStarshipHit);
+        Messenger<GameObject>.AddListener(GameEvent.STARSHIP_HEALING, OnStarshipHealing);
     }
 
     private void OnDestroy()
     {
         Messenger<StarshipDestroyInfo>.RemoveListener(GameEvent.STARSHIP_DESTROY, OnStarshipDestroy);
         Messenger<StarshipHitInfo>.RemoveListener(GameEvent.STARSHIP_HIT, OnStarshipHit);
+        Messenger<GameObject>.RemoveListener(GameEvent.STARSHIP_HEALING, OnStarshipHealing);
     }
 
     private void OnStarshipDestroy(StarshipDestroyInfo info)
@@ -30,6 +35,13 @@ public class EffectsController : MonoBehaviour
     {
         var colorEffect = info.Victim.GetComponent<ColorEffect>();
 
-        colorEffect?.ActivateColorEffect();
+        colorEffect?.ActivateColorEffect(hitEffectColor, effectTime);
+    }
+
+    private void OnStarshipHealing(GameObject starship)
+    {
+        var colorEffect = starship.GetComponent<ColorEffect>();
+
+        colorEffect?.ActivateColorEffect(healingEffectColor, effectTime);
     }
 }

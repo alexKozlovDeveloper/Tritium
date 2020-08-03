@@ -53,4 +53,11 @@ public class HealthController : MonoBehaviour
             Messenger<StarshipDestroyInfo>.Broadcast(GameEvent.STARSHIP_DESTROY, new StarshipDestroyInfo { Victim = this.gameObject, Destroyer = damageDealer});
         }
     }
+
+    public void Healing(float health)
+    {
+        HealthPoints += health;
+
+        Messenger<GameObject>.Broadcast(GameEvent.STARSHIP_HEALING, gameObject);
+    }
 }
