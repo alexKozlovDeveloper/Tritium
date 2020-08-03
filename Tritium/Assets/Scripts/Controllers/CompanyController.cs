@@ -52,6 +52,8 @@ public class CompanyController : MonoBehaviour
             starshipSpawnController.AddStarship(enemy, Random.Range(0.9f, 2.4f));
             killCountController?.AddStarship(enemy);
         }
+
+        Messenger.Broadcast(GameEvent.MISSION_STARTED);
     }
 
     void Update()

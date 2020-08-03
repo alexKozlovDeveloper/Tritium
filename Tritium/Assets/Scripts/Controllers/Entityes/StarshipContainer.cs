@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controllers.Entityes
 {
-    class StarshipContainer
+    public class StarshipContainer
     {
         public GameObject GameObject { get; private set; }
 

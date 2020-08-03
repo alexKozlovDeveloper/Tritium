@@ -7,24 +7,24 @@ public class StarshipSpawnController : MonoBehaviour
     public float spawnTime = 3f;
     public Vector2 spawnAreaSize = new Vector2(100, 100);
 
-    private List<StarshipContainer> _starships;
+    public List<StarshipContainer> Starships { get; private set; }
 
     public int StarshipCount
     {
         get
         {
-            return _starships.Count;
+            return Starships.Count;
         }
     }
 
     public StarshipSpawnController()
     {
-        _starships = new List<StarshipContainer>();
+        Starships = new List<StarshipContainer>();
     }
 
     void Update()
     {
-        foreach (var starship in _starships)
+        foreach (var starship in Starships)
         {
             if (starship.Health.IsDead)
             {
@@ -56,7 +56,7 @@ public class StarshipSpawnController : MonoBehaviour
         container.GameObject.SetActive(false);
         container.RespawnTimer.ResetTime(startRespawnTime);
 
-        _starships.Add(container);
+        Starships.Add(container);
     }
 
     public void AddStarship(IEnumerable<GameObject> starships)

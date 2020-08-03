@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Core
 {
-    class Timer
+    public class Timer
     {
         public float Time { get; private set; }
 

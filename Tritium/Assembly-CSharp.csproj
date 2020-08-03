@@ -89,6 +89,8 @@
     <Compile Include="Assets\Scripts\Core\RaycastHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Timer.cs" />
     <Compile Include="Assets\Scripts\Core\VectorHelper.cs" />
+    <Compile Include="Assets\Scripts\Map\MapController.cs" />
+    <Compile Include="Assets\Scripts\Map\MapPointFollower.cs" />
     <Compile Include="Assets\Scripts\Menu\GameStatisticController.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
     <Compile Include="Assets\Scripts\Other\HealthBar.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Assets\Scripts\Primitives\AutoMoving.cs" />
     <Compile Include="Assets\Scripts\Primitives\ColorEffect.cs" />
     <Compile Include="Assets\Scripts\Primitives\DeferredVisibility.cs" />
+    <Compile Include="Assets\Scripts\Primitives\GlobalRotateToAngle.cs" />
     <Compile Include="Assets\Scripts\Primitives\KeepRotating.cs" />
     <Compile Include="Assets\Scripts\Primitives\SlaveContainer.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Factory\StateMachineFactory.cs" />
