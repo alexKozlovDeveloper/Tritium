@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Controllers\ShootingController.cs" />
     <Compile Include="Assets\Scripts\Controllers\StarshipSpawnController.cs" />
     <Compile Include="Assets\Scripts\Controllers\UserController.cs" />
+    <Compile Include="Assets\Scripts\Core\ColorHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Constants\Consts.cs" />
     <Compile Include="Assets\Scripts\Core\DictionaryHelper.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Scripts\Primitives\AutoDestroy.cs" />
     <Compile Include="Assets\Scripts\Primitives\AutoMoving.cs" />
     <Compile Include="Assets\Scripts\Primitives\ColorEffect.cs" />
+    <Compile Include="Assets\Scripts\Primitives\DeferredVisibility.cs" />
     <Compile Include="Assets\Scripts\Primitives\KeepRotating.cs" />
     <Compile Include="Assets\Scripts\Primitives\SlaveContainer.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Factory\StateMachineFactory.cs" />

@@ -51,8 +51,6 @@ public class StarshipSpawnController : MonoBehaviour
 
     public void AddStarship(GameObject starship, float startRespawnTime = 0f)
     {
-        Debug.Log($"random time {startRespawnTime}");
-
         var container = new StarshipContainer(starship);
 
         container.GameObject.SetActive(false);

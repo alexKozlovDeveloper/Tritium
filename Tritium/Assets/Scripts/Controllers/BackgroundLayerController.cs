@@ -12,15 +12,14 @@ public class BackgroundLayerController : MonoBehaviour
     [SerializeField] private Vector2 countRange = new Vector2(0, 10);
 
     [SerializeField] private float zLevel = 24f;
-
     [SerializeField] private float scaleMultiplier = 4f;
+
+    [SerializeField] private bool lazyLoad = false;
 
     private float minX = 0f;
     private float maxX = 0f;
     private float minY = 0f;
     private float maxY = 0f;
-
-    private List<GameObject> itemsContainer;
 
     void Start()
     {
@@ -34,37 +33,42 @@ public class BackgroundLayerController : MonoBehaviour
 
     private void GenerateBackground()
     {
-        itemsContainer = new List<GameObject>();
-
-        itemsContainer.AddRange(GenerateItems(sprites, zLevel, countRange));        
+        StartCoroutine(GenerateItemsCoroutine(sprites, zLevel, countRange));         
     }
 
-    private IEnumerable<GameObject> GenerateItems(Sprite[] templates, float level, Vector2 countRange)
-    {
-        var result = new List<GameObject>();
-
+    private IEnumerator GenerateItemsCoroutine(Sprite[] templates, float level, Vector2 countRange)
+    { 
         int count = Random.Range((int)countRange.x, (int)countRange.y);
 
         for (int i = 0; i < count; i++)
         {
             int type = Random.Range(0, templates.Length);
 
-            var x = Random.Range(minX, maxX);
-            var y = Random.Range(minY, maxY);
+            GenerateItem(templates[type], level, $"Item_{i}");
 
-            GameObject newItem = new GameObject($"Item_{i}");
-            SpriteRenderer renderer = newItem.AddComponent<SpriteRenderer>();
-            renderer.sprite = templates[type];
-
-            newItem.transform.position = new Vector3(x, y, level);
-            newItem.transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, scaleMultiplier);
-
-            newItem.transform.SetParent(transform);
-
-            result.Add(newItem);
+            if (lazyLoad)
+            {
+                yield return null;
+            }            
         }
+    }
 
-        return result;
+    private void GenerateItem(Sprite template, float level, string name)
+    {       
+        var x = Random.Range(minX, maxX);
+        var y = Random.Range(minY, maxY);
+
+        GameObject newItem = new GameObject(name);
+        var renderer = newItem.AddComponent<SpriteRenderer>();
+        renderer.sprite = template;
+
+        var deferredVisibility = newItem.AddComponent<DeferredVisibility>();
+        deferredVisibility.deferringTime = 0.5f;
+
+        newItem.transform.position = new Vector3(x, y, level);
+        newItem.transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, scaleMultiplier);
+
+        newItem.transform.SetParent(transform);
     }
 
     private void OnDrawGizmos()
