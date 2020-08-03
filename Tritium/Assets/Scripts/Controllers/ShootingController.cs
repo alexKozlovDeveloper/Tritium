@@ -25,7 +25,7 @@ public class ShootingController : MonoBehaviour
             newBullet.transform.position = transform.position;
             newBullet.transform.rotation = transform.rotation;
 
-            newBullet.name += $"_{Guid.NewGuid()}";
+            newBullet.name += $"bullet_{Guid.NewGuid()}";
 
             newBullet.GetComponent<DamageController>().Creator = this.gameObject;
 

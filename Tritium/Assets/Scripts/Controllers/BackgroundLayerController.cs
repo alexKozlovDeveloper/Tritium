@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class BackgroundLayerController : MonoBehaviour
 {
-    [SerializeField] private Sprite[] starts;
+    [SerializeField] private Sprite[] sprites;
 
     [SerializeField] private float height = 40f;
     [SerializeField] private float width = 70f;
 
-    [SerializeField] private Vector2 startsCountRange = new Vector2(0, 10);
+    [SerializeField] private Vector2 countRange = new Vector2(0, 10);
 
-    [SerializeField] private float startsLevelZ = 24f;
+    [SerializeField] private float zLevel = 24f;
 
-    [SerializeField] private float starsScaleMultiplier = 4f;
+    [SerializeField] private float scaleMultiplier = 4f;
 
     private float minX = 0f;
     private float maxX = 0f;
     private float minY = 0f;
     private float maxY = 0f;
 
-    private List<GameObject> stars;
+    private List<GameObject> itemsContainer;
 
     void Start()
     {
@@ -34,16 +34,16 @@ public class BackgroundLayerController : MonoBehaviour
 
     private void GenerateBackground()
     {
-        stars = new List<GameObject>();
+        itemsContainer = new List<GameObject>();
 
-        stars.AddRange(GenerateStars(starts, startsLevelZ, startsCountRange));        
+        itemsContainer.AddRange(GenerateItems(sprites, zLevel, countRange));        
     }
 
-    private IEnumerable<GameObject> GenerateStars(Sprite[] templates, float level, Vector2 countRange)
+    private IEnumerable<GameObject> GenerateItems(Sprite[] templates, float level, Vector2 countRange)
     {
         var result = new List<GameObject>();
 
-        int count = (int)Random.Range(countRange.x, countRange.y);
+        int count = Random.Range((int)countRange.x, (int)countRange.y);
 
         for (int i = 0; i < count; i++)
         {
@@ -52,12 +52,12 @@ public class BackgroundLayerController : MonoBehaviour
             var x = Random.Range(minX, maxX);
             var y = Random.Range(minY, maxY);
 
-            GameObject newItem = new GameObject("Star");
+            GameObject newItem = new GameObject($"Item_{i}");
             SpriteRenderer renderer = newItem.AddComponent<SpriteRenderer>();
             renderer.sprite = templates[type];
 
             newItem.transform.position = new Vector3(x, y, level);
-            newItem.transform.localScale = new Vector3(starsScaleMultiplier, starsScaleMultiplier, starsScaleMultiplier);
+            newItem.transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, scaleMultiplier);
 
             newItem.transform.SetParent(transform);
 

@@ -21,25 +21,15 @@ public class EffectsController : MonoBehaviour
 
     private void OnStarshipDestroy(StarshipDestroyInfo info)
     {
-        var anim = Instantiate(destroyAnimation);
+        var animation = Instantiate(destroyAnimation);
 
-        anim.transform.position = info.Victim.transform.position;
+        animation.transform.position = info.Victim.transform.position;
     }
 
     private void OnStarshipHit(StarshipHitInfo info)
     {
         var colorEffect = info.Victim.GetComponent<ColorEffect>();
 
-        colorEffect.ActivateColorEffect();
-    }
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
+        colorEffect?.ActivateColorEffect();
     }
 }

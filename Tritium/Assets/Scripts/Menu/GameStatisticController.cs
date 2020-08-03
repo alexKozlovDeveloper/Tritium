@@ -20,11 +20,6 @@ public class GameStatisticController : MonoBehaviour
 
     [SerializeField] private GameObject hero;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         SetKillCount();
@@ -43,17 +38,6 @@ public class GameStatisticController : MonoBehaviour
 
     private void SetScoreTable()
     {
-        //var scoreTable = new StringBuilder();
-
-        //var scoreList = killCountController.Score.ToList();
-
-        //scoreList.Sort((pair1, pair2) => pair2.Value.CompareTo(pair1.Value));
-
-        //foreach (var item in scoreList)
-        //{
-        //    scoreTable.Append($"{item.Key.name}: {item.Value} {Environment.NewLine}");
-        //}
-
         Score.text = DictionaryHelper.GetSortedResult(killCountController.Score);
     }
 

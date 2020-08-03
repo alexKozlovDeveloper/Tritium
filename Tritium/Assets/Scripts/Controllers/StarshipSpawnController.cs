@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StarshipSpawnController : MonoBehaviour
 {
-    public float respawnTime = 3f;
+    public float spawnTime = 3f;
     public Vector2 spawnAreaSize = new Vector2(100, 100);
 
     private List<StarshipContainer> _starships;
@@ -30,7 +30,7 @@ public class StarshipSpawnController : MonoBehaviour
             {
                 starship.Health.ResetHealth();
                 starship.GameObject.SetActive(false);                
-                starship.RespawnTimer.ResetTime(respawnTime);
+                starship.RespawnTimer.ResetTime(spawnTime);
             }
             else
             {

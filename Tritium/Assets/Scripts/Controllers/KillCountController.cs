@@ -14,11 +14,6 @@ public class KillCountController : MonoBehaviour
         Score = new Dictionary<GameObject, int>();
     }
 
-    void Start()
-    {
-        DontDestroyOnLoad(this.transform);
-    }
-
     private void Awake()
     {
         Messenger<StarshipDestroyInfo>.AddListener(GameEvent.STARSHIP_DESTROY, OnStarshipDestroy);
@@ -27,11 +22,6 @@ public class KillCountController : MonoBehaviour
     private void OnDestroy()
     {
         Messenger<StarshipDestroyInfo>.RemoveListener(GameEvent.STARSHIP_DESTROY, OnStarshipDestroy);
-    }
-
-    void Update()
-    {
-        
     }
 
     public void AddStarship(GameObject starship)
@@ -48,8 +38,6 @@ public class KillCountController : MonoBehaviour
         {
             Score.Add(info.Destroyer, 0);
         }
-
-        Debug.Log($"{info.Destroyer.name} kill {info.Victim.name}");
 
         Score[info.Destroyer]++;
     }  

@@ -10,7 +10,6 @@ public class ColorEffect : MonoBehaviour
     [SerializeField] private float effectTime = 0.4f;
 
     private Color defaultColor;
-    //private Timer timer;
 
     private SpriteRenderer spriteRenderer;
 
@@ -19,21 +18,19 @@ public class ColorEffect : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         defaultColor = spriteRenderer.color;
-
-        //ActivateColorEffect();
-        //timer = new Timer();
     }
 
-    void Update()
+    private void OnDisable()
     {
-        //timer.AddPassedTime(Time.deltaTime);
+        if (defaultColor != null && spriteRenderer != null)
+        {
+            spriteRenderer.color = defaultColor;
+        }        
+    }
 
-        //if (timer.IsTimeEnd == false)
-        //{
-        //    var currentColor = Color.Lerp(defaultColor, effectColor, effectTime - timer.Time);
-
-        //    spriteRenderer.color = currentColor;
-        //}
+    public void ActivateColorEffect()
+    {
+        StartCoroutine(nameof(EffectFunc));        
     }
 
     private IEnumerator EffectFunc()
@@ -63,11 +60,5 @@ public class ColorEffect : MonoBehaviour
 
             yield return null;
         }
-    }
-
-    public void ActivateColorEffect()
-    {
-        StartCoroutine("EffectFunc");
-        //timer.ResetTime(effectTime);
     }
 }

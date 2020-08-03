@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Core;
+using Assets.Scripts.Core.Constants;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,6 +22,8 @@ public class CompanyController : MonoBehaviour
 
     public float starshipCount = 10;
     public float deathmatchTime = 200f;
+
+    public float resultDuration = 13;
 
     private Timer _timer;
 
@@ -57,8 +60,6 @@ public class CompanyController : MonoBehaviour
 
         if (_timer.IsTimeEnd)
         {
-            //SceneManager.LoadScene("Result");
-
             var result = DictionaryHelper.GetSortedResult(killCountController.Score);
 
             MainUI.SetActive(false);
@@ -74,14 +75,14 @@ public class CompanyController : MonoBehaviour
 
             _timer.ResetTime(20);
 
-            StartCoroutine("LoadMenu");
+            StartCoroutine(nameof(LoadMenu));
         }
     }
 
     private IEnumerator LoadMenu()
     {
-        yield return new WaitForSeconds(13);
+        yield return new WaitForSeconds(resultDuration);
 
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(Consts.Scenes.Menu);
     }
 }

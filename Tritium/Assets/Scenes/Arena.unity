@@ -662,9 +662,8 @@ Transform:
   m_Children:
   - {fileID: 2116516762}
   - {fileID: 706581387}
-  - {fileID: 673673720}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1032,12 +1031,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673673719}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 469614042}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &673673721
 MonoBehaviour:
@@ -1357,6 +1356,7 @@ MonoBehaviour:
   ResultScore: {fileID: 1831762265}
   starshipCount: 10
   deathmatchTime: 70
+  resultDuration: 13
 --- !u!4 &794441545
 Transform:
   m_ObjectHideFlags: 0
@@ -1416,16 +1416,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bdd5837169fd64f8244d8c169c4158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starts:
+  sprites:
   - {fileID: 21300000, guid: 5f798180f15c602429c33cb05c317fb0, type: 3}
   - {fileID: 21300000, guid: 60970baec5a638141808f7583ce32e1e, type: 3}
   - {fileID: 21300000, guid: e5007c24e51c8464ab17acd156d973e7, type: 3}
   - {fileID: 21300000, guid: 8bf48cf9091ed1047aab653d8ed9e974, type: 3}
-  height: 450
-  width: 450
-  startsCountRange: {x: 20, y: 35}
-  startsLevelZ: 45
-  starsScaleMultiplier: 4
+  height: 600
+  width: 600
+  countRange: {x: 25, y: 35}
+  zLevel: 25
+  scaleMultiplier: 1
 --- !u!1 &1032502307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,7 +1646,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1243413888
 GameObject:
@@ -1946,7 +1946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bdd5837169fd64f8244d8c169c4158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starts:
+  sprites:
   - {fileID: 21300000, guid: 0299369f94f42974ba966b427769f157, type: 3}
   - {fileID: 21300000, guid: 38dcf91f01b31ea4a90d4ba3b3c5dce5, type: 3}
   - {fileID: 21300000, guid: 1f8a2663442849341a1776215d2cc8bc, type: 3}
@@ -1955,11 +1955,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 23537455dc73e0b439b7ceea6ee62b26, type: 3}
   - {fileID: 21300000, guid: b02f1744bff1c9f4a9991503d082f7fb, type: 3}
   - {fileID: 21300000, guid: 1e1939bddbcf1a444879538a358a2598, type: 3}
-  height: 450
-  width: 450
-  startsCountRange: {x: 50, y: 90}
-  startsLevelZ: 60
-  starsScaleMultiplier: 8
+  height: 800
+  width: 800
+  countRange: {x: 70, y: 90}
+  zLevel: 100
+  scaleMultiplier: 10
 --- !u!1 &1654072661 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5666114065389525915, guid: 0ee58eeef43cf5144929b88034969fc5,
@@ -2730,7 +2730,7 @@ RectTransform:
   - {fileID: 423879560}
   - {fileID: 236652464}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2780,16 +2780,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bdd5837169fd64f8244d8c169c4158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starts:
+  sprites:
   - {fileID: 21300000, guid: 3e49bb38793aa72499c7b8decf0323b5, type: 3}
   - {fileID: 21300000, guid: e059ae25002c52f4a8dca4ca5cb426f2, type: 3}
   - {fileID: 21300000, guid: b508f95f3442b1d479e10dad35d89a7b, type: 3}
   - {fileID: 21300000, guid: e61df83561957b744b137479d02cc060, type: 3}
-  height: 450
-  width: 450
-  startsCountRange: {x: 180, y: 300}
-  startsLevelZ: 100
-  starsScaleMultiplier: 10
+  height: 1500
+  width: 1500
+  countRange: {x: 240, y: 280}
+  zLevel: 400
+  scaleMultiplier: 25
 --- !u!1 &2116516760
 GameObject:
   m_ObjectHideFlags: 0

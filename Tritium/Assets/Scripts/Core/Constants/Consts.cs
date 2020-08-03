@@ -11,5 +11,10 @@ namespace Assets.Scripts.Core.Constants
         public const int HeroStarshipLayer = 8;
         public const int EnemyStarshipLayer = 9;
         public const int StarshipLayer = 10;
+
+        public static class Scenes
+        {
+            public const string Menu = "Menu";
+        }
     }
 }

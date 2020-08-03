@@ -16,7 +16,7 @@ namespace Assets.Scripts.Core
 
         public static Vector2 DegreeToVector2(float degree)
         {
-            degree += +90f; // as default 0 means vector (1,0), but we use as default vector for 0 degree vector (0,1)
+            degree += +90f; // as default 0 means vector (1,0), but we use as default for 0 degree vector (0,1)
             // and we need to add 90 degree to compensate this difference
 
             return RadianToVector2(degree * Mathf.Deg2Rad);

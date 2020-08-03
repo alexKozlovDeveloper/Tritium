@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,13 +7,18 @@ public class AutoDestroy : MonoBehaviour
 {
     public float timeToDestroy = 1.0f;
 
-    private float liveTime = 0;
+    private Timer _timer;
+
+    private void Start()
+    {
+        _timer = new Timer(timeToDestroy);
+    }
 
     void Update()
     {
-        liveTime += Time.deltaTime;
+        _timer.AddPassedTime(Time.deltaTime);
 
-        if(liveTime >= timeToDestroy)
+        if(_timer.IsTimeEnd)
         {
             Destroy(this.gameObject);
         }

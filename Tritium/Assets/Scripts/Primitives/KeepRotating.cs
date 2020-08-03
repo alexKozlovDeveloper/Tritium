@@ -6,7 +6,6 @@ public class KeepRotating : MonoBehaviour
 {
     [SerializeField] private Transform target;
 
-
     void LateUpdate()
     {
         transform.rotation = target.rotation;

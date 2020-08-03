@@ -6,11 +6,6 @@ public class AutoMoving : MonoBehaviour
 {
     public float speed = 1.0f;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         var velocity = transform.rotation * Vector3.up * speed * Time.deltaTime;

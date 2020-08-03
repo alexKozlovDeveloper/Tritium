@@ -46,16 +46,36 @@ namespace Assets.Scripts.Core
             _keyStates = updatedKeys;
         }
 
+        private void OnDisable()
+        {
+            SetAllKeysToFalse();
+        }
+
+        private void SetAllKeysToFalse()
+        {
+            if (_keyStates != null)
+            {
+                var updatedKeys = new Dictionary<KeyCode, bool>();
+
+                foreach (var key in _keyStates.Keys)
+                {
+                    updatedKeys.Add(key, false);
+                }
+
+                _keyStates = updatedKeys;
+            }
+        }
+
         public bool this[KeyCode key]
         {
-            get 
+            get
             {
                 if (_keyStates.Keys.Contains(key) == false)
                 {
                     return false;
                 }
 
-                return _keyStates[key]; 
+                return _keyStates[key];
             }
         }
     }

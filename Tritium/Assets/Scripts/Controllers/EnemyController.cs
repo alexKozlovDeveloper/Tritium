@@ -21,8 +21,6 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        //stateMachine = StateMachineFactory.GetEnemyMachine(this);
-
         var states = new List<IState>()
         {
             new MovingState(this, movingTimeRange, huntingDistance),
