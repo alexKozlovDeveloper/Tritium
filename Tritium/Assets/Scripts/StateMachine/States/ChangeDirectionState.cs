@@ -51,7 +51,6 @@ namespace Assets.Scripts.StateMachine.States
         {
             if (_timer.IsTimeEnd)
             {
-                //Debug.Log($"ChangeDirectionState time si over, go to Moving State");
                 context.SetState(MovingState.Name);
             }
         }

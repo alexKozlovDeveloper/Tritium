@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Controllers\RandomSpawnController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ShootingController.cs" />
     <Compile Include="Assets\Scripts\Controllers\StarshipSpawnController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TowerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\UserController.cs" />
     <Compile Include="Assets\Scripts\Core\ColorHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Constants\Consts.cs" />
@@ -111,6 +112,9 @@
     <Compile Include="Assets\Scripts\StateMachine\States\ChangeDirectionState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\HuntingState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\MovingState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\TowerChangeDirectionState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\TowerHoldOnState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\States\TowerHuntingState.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
