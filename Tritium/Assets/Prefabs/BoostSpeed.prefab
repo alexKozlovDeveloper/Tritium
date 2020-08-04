@@ -95,8 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281c3b08961b3724cb4d2ccc38f56821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 2
-  duration: 6
+  speedMultiplier: 1.7
+  duration: 3
+  boostPacticalSystemPrefab: {fileID: 5093429943425626439, guid: c331772f6ed94f14ab4de28da371b15d,
+    type: 3}
 --- !u!61 &454543384808236584
 BoxCollider2D:
   m_ObjectHideFlags: 0

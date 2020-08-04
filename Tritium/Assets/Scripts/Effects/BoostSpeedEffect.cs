@@ -14,7 +14,7 @@ public class BoostSpeedEffect : MonoBehaviour
         var movingController = GetComponent<MovingController>();
 
         movingController.movingSpeed *= speedMultiplier;
-        movingController.rotationSpeed *= speedMultiplier;
+        movingController.rotationSpeed *= speedMultiplier;        
 
         Messenger<GameObject>.Broadcast(GameEvent.STARSHIP_BOOST, this.gameObject);
 
