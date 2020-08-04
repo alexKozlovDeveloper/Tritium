@@ -36,21 +36,21 @@ public class EffectsController : MonoBehaviour
 
     private void OnStarshipHit(StarshipHitInfo info)
     {
-        var colorEffect = info.Victim.GetComponent<ColorEffect>();
+        var colorEffect = info.Victim.GetComponentInChildren<ColorEffect>();
 
         colorEffect?.ActivateColorEffect(hitEffectColor, effectTime);
     }
 
     private void OnStarshipHealing(GameObject starship)
     {
-        var colorEffect = starship.GetComponent<ColorEffect>();
+        var colorEffect = starship.GetComponentInChildren<ColorEffect>();
 
         colorEffect?.ActivateColorEffect(healingEffectColor, effectTime);
     }
 
     private void OnStarshipBoost(GameObject starship)
     {
-        var colorEffect = starship.GetComponent<ColorEffect>();
+        var colorEffect = starship.GetComponentInChildren<ColorEffect>();
 
         colorEffect?.ActivateColorEffect(BoostingEffectColor, effectTime);
     }

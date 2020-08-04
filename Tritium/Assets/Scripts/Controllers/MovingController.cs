@@ -50,8 +50,6 @@ public class MovingController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"{this.gameObject.name}: angle: {Angle}");
-
         transform.eulerAngles = new Vector3(0, 0, Angle);
 
         var rigidbody = GetComponent<Rigidbody2D>();

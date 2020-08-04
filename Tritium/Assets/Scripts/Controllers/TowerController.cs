@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(MovingController))]
+[RequireComponent(typeof(HealthController))]
 [RequireComponent(typeof(ShootingController))]
 public class TowerController : MonoBehaviour
 {
@@ -17,8 +18,12 @@ public class TowerController : MonoBehaviour
 
     private MachineContext stateMachine;
 
+    private HealthController healthController;
+
     void Start()
     {
+        healthController = GetComponent<HealthController>();
+
         var states = new List<IState>()
         {
             new TowerHoldOnState(this, holdOnTimeRange, huntingDistance),
@@ -32,5 +37,10 @@ public class TowerController : MonoBehaviour
     void Update()
     {
         stateMachine.Update();
+
+        if (healthController.IsDead)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 }
