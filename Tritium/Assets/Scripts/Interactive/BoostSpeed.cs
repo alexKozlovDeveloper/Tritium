@@ -17,7 +17,7 @@ public class BoostSpeed : MonoBehaviour
 
             var ps = Instantiate(boostPacticalSystemPrefab);
 
-            ps.GetComponent<AutoDestroy>().timeToDestroy = duration;
+            ps.AddComponent<AutoDestroy>().timeToDestroy = duration;
             ps.transform.SetParent(collision.gameObject.transform);
             ps.transform.localPosition = Vector3.zero;
             ps.transform.localEulerAngles = Vector3.zero;

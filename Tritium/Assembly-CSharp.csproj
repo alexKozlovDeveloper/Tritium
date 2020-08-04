@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Primitives\DeferredVisibility.cs" />
     <Compile Include="Assets\Scripts\Primitives\GlobalRotateToAngle.cs" />
     <Compile Include="Assets\Scripts\Primitives\KeepRotating.cs" />
+    <Compile Include="Assets\Scripts\Primitives\MovingForward.cs" />
     <Compile Include="Assets\Scripts\Primitives\SlaveContainer.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Factory\StateMachineFactory.cs" />
     <Compile Include="Assets\Scripts\StateMachine\Interfaces\IState.cs" />

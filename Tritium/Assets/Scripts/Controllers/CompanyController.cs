@@ -75,7 +75,7 @@ public class CompanyController : MonoBehaviour
                 var enemyController = hero.AddComponent<EnemyController>();
             }          
 
-            _timer.ResetTime(20);
+            _timer.ResetTime(resultDuration + 1);
 
             StartCoroutine(nameof(LoadMenu));
         }
