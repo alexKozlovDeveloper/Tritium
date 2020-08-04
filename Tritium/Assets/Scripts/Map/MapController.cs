@@ -10,6 +10,7 @@ public class MapController : MonoBehaviour
     [SerializeField] private GameObject centerTarget;
 
     public float scale = 0.1f;
+    public float mapRadius = 5f;
 
     private List<GameObject> points = new List<GameObject>();
 
@@ -40,6 +41,7 @@ public class MapController : MonoBehaviour
             follower.target = starship;
             follower.centerTarget = centerTarget;
             follower.scale = scale;
+            follower.mapRadius = mapRadius;
 
             newItem.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
 

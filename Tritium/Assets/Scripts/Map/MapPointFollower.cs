@@ -9,6 +9,7 @@ public class MapPointFollower : MonoBehaviour
     public GameObject target;
     public GameObject centerTarget;
     public float scale = 1f;
+    public float mapRadius = 5f;
 
     private SpriteRenderer spriteRenderer;
 
@@ -19,15 +20,19 @@ public class MapPointFollower : MonoBehaviour
 
     void Update()
     {
-        transform.localPosition = (target.transform.position - centerTarget.transform.position) * scale;
+        var offset = (target.transform.position - centerTarget.transform.position);
 
-        if (target.gameObject.activeSelf == true) 
+        transform.localPosition = offset * scale;
+
+        //Debug.Log($"[{target.gameObject.name}] {offset.magnitude} < {mapRadius}");
+
+        if (target.gameObject.activeSelf != true || offset.magnitude > mapRadius) 
         {
-            spriteRenderer.color = spriteRenderer.color.SetAlpha(1);
+            spriteRenderer.color = spriteRenderer.color.SetAlpha(0);
         }
         else
         {
-            spriteRenderer.color = spriteRenderer.color.SetAlpha(0);
+            spriteRenderer.color = spriteRenderer.color.SetAlpha(1);
         }
     }
 }
