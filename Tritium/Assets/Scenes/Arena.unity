@@ -663,6 +663,7 @@ Transform:
   - {fileID: 2116516762}
   - {fileID: 706581387}
   - {fileID: 1816130325}
+  - {fileID: 1937595210}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1088,6 +1089,7 @@ MonoBehaviour:
     type: 3}
   hitEffectColor: {r: 1, g: 0, b: 0, a: 1}
   healingEffectColor: {r: 0, g: 1, b: 0, a: 1}
+  BoostingEffectColor: {r: 0.24056602, g: 0.64537114, b: 1, a: 1}
   effectTime: 0.07
 --- !u!1 &686561053
 GameObject:
@@ -2523,6 +2525,7 @@ MonoBehaviour:
     type: 3}
   spawnAreaSize: {x: 50, y: 50}
   spawnFrequency: 4
+  GizmosColor: {r: 1, g: 0.039275132, b: 0, a: 1}
 --- !u!1 &1831762263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2832,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1937595209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1937595210}
+  - component: {fileID: 1937595211}
+  m_Layer: 0
+  m_Name: BoostSpeedSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1937595210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937595209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 469614042}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1937595211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937595209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e23318b2a6c8ec4e851516ea289e25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPrefab: {fileID: 454543384808236585, guid: 826b369d4c536ae41a045d4e12c1e968,
+    type: 3}
+  spawnAreaSize: {x: 60, y: 60}
+  spawnFrequency: 4
+  GizmosColor: {r: 0, g: 0.26565337, b: 1, a: 1}
 --- !u!1 &1960421859
 GameObject:
   m_ObjectHideFlags: 0

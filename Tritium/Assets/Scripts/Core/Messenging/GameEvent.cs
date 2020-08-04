@@ -9,5 +9,6 @@ public static class GameEvent
 	public const string STARSHIP_DESTROY = "STARSHIP_DESTROY";
 	public const string STARSHIP_HIT = "STARSHIP_HIT";
 	public const string STARSHIP_HEALING = "STARSHIP_HEALING";
+	public const string STARSHIP_BOOST = "STARSHIP_BOOST";
 	public const string MISSION_STARTED = "MISSION_STARTED";
 }

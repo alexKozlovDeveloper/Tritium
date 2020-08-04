@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MovingController : MonoBehaviour
 {
-    [SerializeField] private float movingSpeed = 20f;
-    [SerializeField] private float rotationSpeed = 20f;
+    public float movingSpeed = 20f;
+    public float rotationSpeed = 20f;
 
-    [SerializeField] private float decelerationSpeed = 0.35f;
+    public float decelerationSpeed = 0.35f;
 
     public float Angle { get; private set; }
 

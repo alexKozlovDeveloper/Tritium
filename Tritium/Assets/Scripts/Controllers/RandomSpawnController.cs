@@ -10,6 +10,8 @@ public class RandomSpawnController : MonoBehaviour
     [SerializeField] private Vector2 spawnAreaSize = new Vector2(200, 200);
     [SerializeField] private float spawnFrequency = 1f;
 
+    [SerializeField] private Color GizmosColor = Color.green;
+
     private Timer _timer;
 
     void Start()
@@ -43,7 +45,7 @@ public class RandomSpawnController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = GizmosColor;
 
         Gizmos.DrawLine(new Vector3(transform.position.x - spawnAreaSize.x / 2f, transform.position.y - spawnAreaSize.y / 2f, 0),
                         new Vector3(transform.position.x + spawnAreaSize.x / 2f, transform.position.y - spawnAreaSize.y / 2f, 0));

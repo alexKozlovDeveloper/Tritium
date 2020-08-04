@@ -89,6 +89,8 @@
     <Compile Include="Assets\Scripts\Core\RaycastHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Timer.cs" />
     <Compile Include="Assets\Scripts\Core\VectorHelper.cs" />
+    <Compile Include="Assets\Scripts\Effects\BoostSpeedEffect.cs" />
+    <Compile Include="Assets\Scripts\Interactive\BoostSpeed.cs" />
     <Compile Include="Assets\Scripts\Interactive\HealthPack.cs" />
     <Compile Include="Assets\Scripts\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Map\MapPointFollower.cs" />

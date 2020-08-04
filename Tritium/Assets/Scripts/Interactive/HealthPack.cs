@@ -8,8 +8,6 @@ public class HealthPack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("HEALTH_PACK!!!");
-
         var healthController = collision.gameObject.GetComponent<HealthController>();
 
         if(healthController != null)
