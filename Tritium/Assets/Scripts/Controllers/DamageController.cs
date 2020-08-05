@@ -30,8 +30,13 @@ public class DamageController : MonoBehaviour
 
         if(healthController != null)
         {
-            healthController.MakeDamage(damage, Creator);
-            Destroy(this.gameObject);
+            var teamController = Creator.GetComponent<TeamController>();
+
+            if(teamController == null || teamController.IsEnemy(collision.gameObject)) 
+            {
+                healthController.MakeDamage(damage, Creator);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

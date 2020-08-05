@@ -75,10 +75,12 @@
     <Compile Include="Assets\Scripts\Controllers\RandomSpawnController.cs" />
     <Compile Include="Assets\Scripts\Controllers\ShootingController.cs" />
     <Compile Include="Assets\Scripts\Controllers\StarshipSpawnController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TeamController.cs" />
     <Compile Include="Assets\Scripts\Controllers\TowerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\UserController.cs" />
     <Compile Include="Assets\Scripts\Core\ColorHelper.cs" />
     <Compile Include="Assets\Scripts\Core\Constants\Consts.cs" />
+    <Compile Include="Assets\Scripts\Core\Constants\Teams.cs" />
     <Compile Include="Assets\Scripts\Core\DictionaryHelper.cs" />
     <Compile Include="Assets\Scripts\Core\KeyStateController.cs" />
     <Compile Include="Assets\Scripts\Core\Messenging\Entityes\StarshipDestroyInfo.cs" />

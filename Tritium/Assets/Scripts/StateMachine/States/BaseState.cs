@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.StateMachine.Interfaces;
+﻿using Assets.Scripts.Core;
+using Assets.Scripts.Core.Constants;
+using Assets.Scripts.StateMachine.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +30,22 @@ namespace Assets.Scripts.StateMachine.States
         public abstract void CheckTransition(MachineContext context);
         public abstract void Reset();
         public abstract void Update();
+
+        protected GameObject GetEnemy(RaycastHit2D[] hits)
+        {
+            var allStarships = hits.GetHitsForLayer(Consts.StarshipLayer, _target.gameObject);
+
+            var teamController = _target.GetComponent<TeamController>();
+
+            foreach (var item in allStarships)
+            {
+                if (teamController.IsEnemy(item))
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
     }
 }

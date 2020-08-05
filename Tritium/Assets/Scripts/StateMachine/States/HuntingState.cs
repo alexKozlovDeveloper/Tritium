@@ -92,24 +92,17 @@ namespace Assets.Scripts.StateMachine.States
 
             if(distance > _huntingDistance)
             {
-                //Debug.Log($"HuntingState far distance, go to Moving State");
                 context.SetState(MovingState.Name);
                 return;
             }
-
-            //Debug.Log($"HuntingState Distance: '{distance}'");
         }
 
         public override void Reset()
         {
             var hits = Physics2D.CircleCastAll(_target.transform.position.ToVector2(), _huntingDistance, Vector2.up);
 
-            victim = hits.GetFirstHitForLayer(Consts.StarshipLayer, _target.gameObject);   
-            
-            //if(victim != null)
-            //{
-                //Debug.Log($"Hunting reset, found an enemy '{victim.gameObject.name}'");
-            //}
+            //victim = hits.GetFirstHitForLayer(Consts.StarshipLayer, _target.gameObject);   
+            victim = GetEnemy(hits);
         }             
     }
 }

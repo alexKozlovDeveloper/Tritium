@@ -44,30 +44,15 @@ namespace Assets.Scripts.StateMachine.States
         {
             var hits = Physics2D.CircleCastAll(_movingController.transform.position.ToVector2(), _huntingDistance, Vector2.up);
 
-            if(hits.GetFirstHitForLayer(Consts.StarshipLayer, _target.gameObject) != null)
+            //if(hits.GetFirstHitForLayer(Consts.StarshipLayer, _target.gameObject) != null)
+            if(GetEnemy(hits) != null)
             {
                 context.SetState(HuntingState.Name);
                 return;
             }
 
-            //foreach (var item in results)
-            //{
-            //    if (item.collider != null)
-            //    {
-            //        if (item.collider.gameObject.layer == Consts.StarshipLayer)
-            //        {
-            //            //Debug.Log($"MovingState found a anemy, go to Hunting State");
-            //            context.SetState(HuntingState.Name);
-            //            return;
-            //        }
-            //    }
-            //}
-
-
-
             if (_timer.IsTimeEnd)
             {
-                //Debug.Log($"MovingState time si over, go to ChangeDirection State");
                 context.SetState(ChangeDirectionState.Name);
                 return;
             }

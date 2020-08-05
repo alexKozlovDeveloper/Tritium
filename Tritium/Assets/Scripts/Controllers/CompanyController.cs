@@ -38,6 +38,8 @@ public class CompanyController : MonoBehaviour
             return;
         }
 
+        hero.GetComponent<TeamController>().TeamName = Teams.Blue;
+
         starshipSpawnController.AddStarship(hero);
         killCountController?.AddStarship(hero);
 
@@ -46,6 +48,7 @@ public class CompanyController : MonoBehaviour
             var enemy = Instantiate(enemyPrefab);
 
             enemy.name = "Bot_" + NameHelper.GetRandomName();
+            enemy.GetComponent<TeamController>().TeamName = Teams.Red;
 
             enemy.transform.SetParent(transform);
 
