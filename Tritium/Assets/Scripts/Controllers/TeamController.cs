@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TeamController : MonoBehaviour
 {
-    public string TeamName;
+    public int TeamId;
 
     public bool IsEnemy(GameObject player)
     {
@@ -15,7 +15,7 @@ public class TeamController : MonoBehaviour
             return false;
         }
 
-        if(teamController.TeamName != TeamName)
+        if(teamController.TeamId != TeamId)
         {
             return true;
         }

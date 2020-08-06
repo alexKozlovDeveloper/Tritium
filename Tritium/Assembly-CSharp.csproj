@@ -64,8 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Controllers\BackgroundLayerController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\CompanyController.cs" />
     <Compile Include="Assets\Scripts\Controllers\DamageController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\DeathmatchController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\DreadnoughtController.cs" />
     <Compile Include="Assets\Scripts\Controllers\EffectsController.cs" />
     <Compile Include="Assets\Scripts\Controllers\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Entityes\StarshipContainer.cs" />

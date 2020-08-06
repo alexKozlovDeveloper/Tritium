@@ -8,7 +8,7 @@ namespace Assets.Scripts.Core.Constants
 {
     public static class Teams
     {
-        public const string Blue = "Blue Team";
-        public const string Red = "Red Team";
+        public const int Blue = 1;
+        public const int Red = 2;
     }
 }

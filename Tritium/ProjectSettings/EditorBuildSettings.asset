@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 2d8e7638eac359b49918b4f731f195fc
   - enabled: 1
-    path: Assets/Scenes/Arena.unity
+    path: Assets/Scenes/Deathmatch.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Result.unity

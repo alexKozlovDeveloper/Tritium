@@ -16,7 +16,7 @@ public class GameStatisticController : MonoBehaviour
     [SerializeField] private Slider HealthPointsSlider;
 
     [SerializeField] private KillCountController killCountController;
-    [SerializeField] private CompanyController companyController;
+    [SerializeField] private DeathmatchController companyController;
 
     [SerializeField] private GameObject hero;
 

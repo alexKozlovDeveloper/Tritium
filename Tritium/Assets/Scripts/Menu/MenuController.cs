@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public void Play()
+    public void Company()
     {
-        SceneManager.LoadScene("Arena");
+        SceneManager.LoadScene("Company");
+    }
+
+    public void Deathmatch()
+    {
+        SceneManager.LoadScene("Deathmatch");
     }
 
     public void Quit()
